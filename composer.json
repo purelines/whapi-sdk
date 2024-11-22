@@ -1,4 +1,5 @@
 {
+    "name": "whapi-cloud/whatsapp-api-sdk-php",
     "description": "Sending and receiving messages using HTTP requests. Fixed price with no hidden fees, without limits and restrictions. You will be able to send and receive text/media/files/locations/goods/orders/polls messages via WhatsApp in private or group chats. Guides and SDK can be found on our website.",
     "keywords": [
         "openapitools",
