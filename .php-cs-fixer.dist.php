@@ -24,6 +24,10 @@ return $config->setRules([
         'single_blank_line_at_eof' => false,
         'blank_line_after_namespace' => false,
         'no_leading_import_slash' => false,
+        'trailing_comma_in_multiline' => [
+            'elements' => ['arguments', 'array_destructuring', 'arrays', 'match', 'parameters'],
+        ],
     ])
     ->setFinder($finder)
+    ->setRiskyAllowed(true) // Required for strict comparison and strict param
 ;
