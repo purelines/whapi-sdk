@@ -9,7 +9,7 @@ info:
     send and receive text/media/files/locations/goods/orders/polls messages via
     WhatsApp in private or group chats. Guides and SDK can be found on our
     website.
-  title: WhatsApp API
+  title: Whapi API
   version: 1.8.7
   termsOfService: https://whapi.cloud/terms
 servers:
@@ -706,9 +706,9 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SenderShort"
-              example:
-                to: "61371989950"
-                media: https://whapi.cloud/assets/img/example/example.mp4
+            example:
+              to: "61371989950"
+              media: https://whapi.cloud/assets/img/example/example.mp4
           multipart/form-data:
             schema:
               $ref: "#/components/schemas/SenderShort"
@@ -782,9 +782,9 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SenderGif"
-              example:
-                to: "61371989950"
-                media: https://theminimalistfisherman.com/wp-content/uploads/2024/01/confused-cat-gif.gif
+            example:
+              to: "61371989950"
+              media: https://theminimalistfisherman.com/wp-content/uploads/2024/01/confused-cat-gif.gif
           multipart/form-data:
             schema:
               $ref: "#/components/schemas/SenderGif"
@@ -857,9 +857,9 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SenderAudio"
-              example:
-                to: "61371989950"
-                media: https://filesamples.com/samples/audio/mp3/sample1.mp3
+            example:
+              to: "61371989950"
+              media: https://filesamples.com/samples/audio/mp3/sample1.mp3
           multipart/form-data:
             schema:
               $ref: "#/components/schemas/SenderAudio"
@@ -1012,11 +1012,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SenderDocument"
-              example:
-                to: "61371989950"
-                media: https://filesamples.com/samples/document/pdf/sample2.pdf
-                filename: Example
-                caption: Text caption under the document
+            example:
+              to: "61371989950"
+              media: https://filesamples.com/samples/document/pdf/sample2.pdf
+              filename: Example
+              caption: Text caption under the document
           multipart/form-data:
             schema:
               $ref: "#/components/schemas/SenderDocument"
@@ -1292,24 +1292,24 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SenderContact"
-              example:
-                to: "61371989950"
-                name: Name of contact
-                vcard: |-
-                  BEGIN:VCARD
-                  VERSION:3.0
-                  N:Last Name;Example First Name;;;
-                  FN:Example First Name Last Name
-                  ORG:Company Name Department
-                  TITLE:Job Title
-                  NOTE:null
-                  TEL;type=Mobile:+90 850242323
-                  item1.URL:www.youdomain.com
-                  item1.X-ABLabel:OTHER
-                  EMAIL;TYPE=Home:test@yourdomain.com
-                  item2.ADR;type=Home:;;Street Example;Istanbul;;;Turkey
-                  item2.X-ABADR:
-                  END:VCARD
+            example:
+              to: "61371989950"
+              name: Name of contact
+              vcard: |-
+                BEGIN:VCARD
+                VERSION:3.0
+                N:Last Name;Example First Name;;;
+                FN:Example First Name Last Name
+                ORG:Company Name Department
+                TITLE:Job Title
+                NOTE:null
+                TEL;type=Mobile:+90 850242323
+                item1.URL:www.youdomain.com
+                item1.X-ABLabel:OTHER
+                EMAIL;TYPE=Home:test@yourdomain.com
+                item2.ADR;type=Home:;;Street Example;Istanbul;;;Turkey
+                item2.X-ABADR:
+                END:VCARD
           multipart/form-data:
             schema:
               $ref: "#/components/schemas/SenderContact"
@@ -3467,7 +3467,6 @@ paths:
     post:
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       tags:
         - Groups
       parameters:
@@ -3517,7 +3516,6 @@ paths:
     delete:
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       tags:
         - Groups
       parameters:
@@ -6391,7 +6389,6 @@ paths:
         - $ref: "#/components/parameters/CommunityID"
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       responses:
         "200":
           $ref: "#/components/responses/ListParticipants"
@@ -6432,7 +6429,6 @@ paths:
         - $ref: "#/components/parameters/CommunityID"
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       responses:
         "200":
           $ref: "#/components/responses/ListParticipants"
@@ -6474,7 +6470,6 @@ paths:
         - $ref: "#/components/parameters/CommunityID"
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       responses:
         "200":
           $ref: "#/components/responses/ListParticipants"
@@ -6516,7 +6511,6 @@ paths:
         - $ref: "#/components/parameters/CommunityID"
       requestBody:
         $ref: "#/components/requestBodies/ListParticipants"
-        required: true
       responses:
         "200":
           $ref: "#/components/responses/ListParticipants"
@@ -7247,7 +7241,7 @@ components:
           schema:
             format: binary
             type: string
-        audio/acc:
+        audio/aac:
           schema:
             format: binary
             type: string
@@ -7335,8 +7329,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/ApplicationRequest"
-            required:
-              - application
   responses:
     Health:
       content:
@@ -7573,7 +7565,7 @@ components:
           schema:
             format: binary
             type: string
-        audio/acc:
+        audio/aac:
           schema:
             format: binary
             type: string
@@ -9084,6 +9076,8 @@ components:
     ApplicationRequest:
       title: Chat ID List
       type: object
+      required:
+        - application
       properties:
         application:
           $ref: "#/components/schemas/ChatID"
@@ -10347,8 +10341,10 @@ components:
         - id
       allOf:
         - $ref: "#/components/schemas/MediaFile"
-        - $ref: "#/components/schemas/MessagePropsDocument"
         - properties:
+            caption:
+              description: Optional. Text caption under the document.
+              type: string
             page_count:
               description: Optional. Number of pages
               type: integer
@@ -10879,7 +10875,7 @@ components:
         - id
         - mime_type
         - file_size
-        - time
+        - timestamp
       properties:
         id:
           $ref: "#/components/schemas/MediaID"
@@ -11412,7 +11408,6 @@ components:
         - $ref: "#/components/schemas/ButtonList"
         - properties:
             product:
-              type: object
               $ref: "#/components/schemas/ActionProduct"
     InteractiveType:
       default: button
