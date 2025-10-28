@@ -1,0 +1,3 @@
+additionalProperties:
+  ensureUniqueParams: true
+  invokerPackage: "Purelines\\WhapiSdk"

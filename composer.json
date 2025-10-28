@@ -1,5 +1,5 @@
 {
-    "name": "purelines/whatsapp-api-sdk-php",
+    "name": "purelines/whapi-sdk",
     "description": "Fixed version of PHP SDK for Whapi.Cloud API to interact with WhatsApp via HTTP.",
     "keywords": [
         "sdk",
@@ -7,12 +7,12 @@
         "whatsapp",
         "whapi"
     ],
-    "homepage": "https://whapi.cloud/whatsapp-api-php-sdk",
+    "homepage": "https://github.com/purelines/whapi-sdk",
     "license": "MIT",
     "authors": [
         {
             "name": "purelines",
-            "homepage": "https://github.com/purelines/whatsapp-api-sdk-php"
+            "homepage": "https://github.com/purelines/whapi-sdk"
         },
         {
             "name": "Whapi.Cloud",
@@ -34,6 +34,6 @@
         "whapi-cloud/whatsapp-api-sdk-php": "*"
     },
     "autoload": {
-        "psr-4": { "OpenAPI\\Client\\" : "lib/" }
+        "psr-4": { "Purelines\\WhapiSdk\\" : "lib/" }
     }
 }
