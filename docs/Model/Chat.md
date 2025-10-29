@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **unread_mention** | **bool** | Is chat unread mention | [optional]
 **read_only** | **bool** | Is chat read only | [optional]
 **not_spam** | **bool** | Is chat not spam | [optional]
-**last_message** | [**\OpenAPI\Client\Model\Message**](Message.md) |  | [optional]
-**labels** | [**\OpenAPI\Client\Model\Label[]**](Label.md) | Labels associated with chat | [optional]
+**last_message** | [**\Purelines\WhapiSdk\Model\Message**](Message.md) |  | [optional]
+**labels** | [**\Purelines\WhapiSdk\Model\Label[]**](Label.md) | Labels associated with chat | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

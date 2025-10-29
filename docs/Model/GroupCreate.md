@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Group name |
 **type** | **string** | Chat type |
 **timestamp** | **int** | Chat timestamp | [optional]
-**participants** | [**\OpenAPI\Client\Model\Participant[]**](Participant.md) | Group participants |
+**participants** | [**\Purelines\WhapiSdk\Model\Participant[]**](Participant.md) | Group participants |
 **name_at** | **int** | Group name set timestamp | [optional]
 **created_at** | **int** | Group creation timestamp | [optional]
 **created_by** | **string** | Contact ID | [optional]

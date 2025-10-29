@@ -1,4 +1,6 @@
-# OpenAPI\Client\MessagesApi
+# Purelines\WhapiSdk\MessagesApi
+
+Manage the messages sent and received by the channel
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -10,9 +12,12 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**getMessages()**](MessagesApi.md#getMessages) | **GET** /messages/list | Get messages |
 | [**getMessagesByChatID()**](MessagesApi.md#getMessagesByChatID) | **GET** /messages/list/{ChatID} | Get messages by chat ID |
 | [**markMessageAsRead()**](MessagesApi.md#markMessageAsRead) | **PUT** /messages/{MessageID} | ✔✔ Mark message as read |
+| [**pinMessage()**](MessagesApi.md#pinMessage) | **POST** /messages/{MessageID}/pin | 📌 Pin message |
 | [**reactToMessage()**](MessagesApi.md#reactToMessage) | **PUT** /messages/{MessageID}/reaction | 😍 React to message |
+| [**removeReactFromMessage()**](MessagesApi.md#removeReactFromMessage) | **DELETE** /messages/{MessageID}/reaction | Remove react from message |
 | [**sendMediaMessage()**](MessagesApi.md#sendMediaMessage) | **POST** /messages/media/{MediaMessageType} | 📎 Send media message |
 | [**sendMessageAudio()**](MessagesApi.md#sendMessageAudio) | **POST** /messages/audio | 🎵 Send media-audio message |
+| [**sendMessageCarousel()**](MessagesApi.md#sendMessageCarousel) | **POST** /messages/carousel | 🖼️ Send carousel message |
 | [**sendMessageContact()**](MessagesApi.md#sendMessageContact) | **POST** /messages/contact | 👤 Send contact message |
 | [**sendMessageContactList()**](MessagesApi.md#sendMessageContactList) | **POST** /messages/contact_list | 👥 Send contact list message |
 | [**sendMessageDocument()**](MessagesApi.md#sendMessageDocument) | **POST** /messages/document | 📑 Send media-document message |
@@ -33,12 +38,13 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**sendMessageVideo()**](MessagesApi.md#sendMessageVideo) | **POST** /messages/video | 🎥 Send media-video message |
 | [**sendMessageVoice()**](MessagesApi.md#sendMessageVoice) | **POST** /messages/voice | 🎤 Send media-voice message |
 | [**starMessage()**](MessagesApi.md#starMessage) | **PUT** /messages/{MessageID}/star | ⭐ Star message |
+| [**unpinMessage()**](MessagesApi.md#unpinMessage) | **DELETE** /messages/{MessageID}/pin | Unpin message |
 
 
 ## `deleteMessage()`
 
 ```php
-deleteMessage($message_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteMessage($message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 ❌ Delete message
@@ -53,15 +59,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -85,7 +91,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -103,7 +109,7 @@ try {
 ## `forwardMessage()`
 
 ```php
-forwardMessage($message_id, $forward_message): \OpenAPI\Client\Model\SentMessage
+forwardMessage($message_id, $forward_message): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 ↪ Forward message
@@ -118,22 +124,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $message_id = 'message_id_example'; // string | Message ID
-$forward_message = new \OpenAPI\Client\Model\ForwardMessage(); // \OpenAPI\Client\Model\ForwardMessage | Forward message
+$forward_message = new \Purelines\WhapiSdk\Model\ForwardMessage(); // \Purelines\WhapiSdk\Model\ForwardMessage | Forward message
 
 try {
     $result = $apiInstance->forwardMessage($message_id, $forward_message);
@@ -148,11 +154,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **message_id** | **string**| Message ID | |
-| **forward_message** | [**\OpenAPI\Client\Model\ForwardMessage**](../Model/ForwardMessage.md)| Forward message | |
+| **forward_message** | [**\Purelines\WhapiSdk\Model\ForwardMessage**](../Model/ForwardMessage.md)| Forward message | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -170,7 +176,7 @@ try {
 ## `getMessage()`
 
 ```php
-getMessage($message_id): \OpenAPI\Client\Model\Message
+getMessage($message_id, $resync): \Purelines\WhapiSdk\Model\Message
 ```
 
 Get message
@@ -185,24 +191,25 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $message_id = 'message_id_example'; // string | Message ID
+$resync = false; // bool | If set to true, the channel will resync its data.
 
 try {
-    $result = $apiInstance->getMessage($message_id);
+    $result = $apiInstance->getMessage($message_id, $resync);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->getMessage: ', $e->getMessage(), PHP_EOL;
@@ -214,10 +221,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **message_id** | **string**| Message ID | |
+| **resync** | **bool**| If set to true, the channel will resync its data. | [optional] [default to false] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Message**](../Model/Message.md)
+[**\Purelines\WhapiSdk\Model\Message**](../Model/Message.md)
 
 ### Authorization
 
@@ -235,7 +243,7 @@ try {
 ## `getMessages()`
 
 ```php
-getMessages($count, $offset, $time_from, $time_to, $normal_types, $author, $from_me, $sort): \OpenAPI\Client\Model\MessagesList
+getMessages($count, $offset, $time_from, $time_to, $normal_types, $author, $from_me, $sort): \Purelines\WhapiSdk\Model\MessagesList
 ```
 
 Get messages
@@ -250,15 +258,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -296,7 +304,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MessagesList**](../Model/MessagesList.md)
+[**\Purelines\WhapiSdk\Model\MessagesList**](../Model/MessagesList.md)
 
 ### Authorization
 
@@ -314,7 +322,7 @@ try {
 ## `getMessagesByChatID()`
 
 ```php
-getMessagesByChatID($chat_id, $count, $offset, $time_from, $time_to, $normal_types, $author, $from_me, $sort): \OpenAPI\Client\Model\MessagesList
+getMessagesByChatID($chat_id, $count, $offset, $time_from, $time_to, $normal_types, $author, $from_me, $sort): \Purelines\WhapiSdk\Model\MessagesList
 ```
 
 Get messages by chat ID
@@ -329,15 +337,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -377,7 +385,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MessagesList**](../Model/MessagesList.md)
+[**\Purelines\WhapiSdk\Model\MessagesList**](../Model/MessagesList.md)
 
 ### Authorization
 
@@ -395,7 +403,7 @@ try {
 ## `markMessageAsRead()`
 
 ```php
-markMessageAsRead($message_id): \OpenAPI\Client\Model\ResponseSuccess
+markMessageAsRead($message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 ✔✔ Mark message as read
@@ -408,15 +416,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -440,7 +448,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -455,15 +463,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `reactToMessage()`
+## `pinMessage()`
 
 ```php
-reactToMessage($message_id, $react_to_message): \OpenAPI\Client\Model\ResponseSuccess
+pinMessage($message_id, $pin): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
-😍 React to message
-
-In this method you will be able to react to messages that were sent or recieved by you. You will need to specify the ID of the message you will respond to, as well as [the emoji](https://support.whapi.cloud/help-desk/sending/send-emoji)
+📌 Pin message
 
 ### Example
 
@@ -473,28 +479,28 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $message_id = 'message_id_example'; // string | Message ID
-$react_to_message = new \OpenAPI\Client\Model\ReactToMessage(); // \OpenAPI\Client\Model\ReactToMessage | React to message
+$pin = new \Purelines\WhapiSdk\Model\Pin(); // \Purelines\WhapiSdk\Model\Pin | Star message
 
 try {
-    $result = $apiInstance->reactToMessage($message_id, $react_to_message);
+    $result = $apiInstance->pinMessage($message_id, $pin);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesApi->reactToMessage: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessagesApi->pinMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -503,11 +509,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **message_id** | **string**| Message ID | |
-| **react_to_message** | [**\OpenAPI\Client\Model\ReactToMessage**](../Model/ReactToMessage.md)| React to message | |
+| **pin** | [**\Purelines\WhapiSdk\Model\Pin**](../Model/Pin.md)| Star message | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -522,10 +528,142 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `reactToMessage()`
+
+```php
+reactToMessage($message_id, $react_to_message): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+😍 React to message
+
+In this method you will be able to react to messages that were sent or received by you. You will need to specify the ID of the message you will respond to, as well as [the emoji](https://support.whapi.cloud/help-desk/sending/send-emoji)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$message_id = 'message_id_example'; // string | Message ID
+$react_to_message = new \Purelines\WhapiSdk\Model\ReactToMessage(); // \Purelines\WhapiSdk\Model\ReactToMessage | React to message
+
+try {
+    $result = $apiInstance->reactToMessage($message_id, $react_to_message);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->reactToMessage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **message_id** | **string**| Message ID | |
+| **react_to_message** | [**\Purelines\WhapiSdk\Model\ReactToMessage**](../Model/ReactToMessage.md)| React to message | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `removeReactFromMessage()`
+
+```php
+removeReactFromMessage($message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Remove react from message
+
+In this method you will be able to remove react from message.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$message_id = 'message_id_example'; // string | Message ID
+
+try {
+    $result = $apiInstance->removeReactFromMessage($message_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->removeReactFromMessage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **message_id** | **string**| Message ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `sendMediaMessage()`
 
 ```php
-sendMediaMessage($media_message_type, $send_params, $body): \OpenAPI\Client\Model\SentMessage
+sendMediaMessage($media_message_type, $send_params, $body): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📎 Send media message
@@ -540,23 +678,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$media_message_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\MediaMessageType(); // \OpenAPI\Client\Model\MediaMessageType | Media message type
-$send_params = array('key' => new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SenderMedia()); // \OpenAPI\Client\Model\SenderMedia | Send sender parameters via query
-$body = "/path/to/file.txt"; // \SplFileObject
+$media_message_type = new \Purelines\WhapiSdk\Model\\Purelines\WhapiSdk\Model\MediaMessageType(); // \Purelines\WhapiSdk\Model\MediaMessageType | Media message type
+$send_params = array('key' => new \Purelines\WhapiSdk\Model\\Purelines\WhapiSdk\Model\SenderMedia()); // \Purelines\WhapiSdk\Model\SenderMedia | Send sender parameters via query
+$body = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $result = $apiInstance->sendMediaMessage($media_message_type, $send_params, $body);
@@ -570,13 +708,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **media_message_type** | [**\OpenAPI\Client\Model\MediaMessageType**](../Model/.md)| Media message type | |
-| **send_params** | [**\OpenAPI\Client\Model\SenderMedia**](../Model/.md)| Send sender parameters via query | |
+| **media_message_type** | [**\Purelines\WhapiSdk\Model\MediaMessageType**](../Model/.md)| Media message type | |
+| **send_params** | [**\Purelines\WhapiSdk\Model\SenderMedia**](../Model/.md)| Send sender parameters via query | |
 | **body** | **\SplFileObject****\SplFileObject**|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -584,7 +722,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/pdf`, `application/msword`, `application/vnd.ms-powerpoint`, `application/vnd.ms-excel`, `text/plain`, `image/jpeg`, `image/png`, `audio/acc`, `audio/mp4`, `audio/amr`, `audio/mpeg`, `audio/ogg`, `codecs=opus`, `video/mp4`, `application/json`
+- **Content-Type**: `application/pdf`, `application/msword`, `application/vnd.ms-powerpoint`, `application/vnd.ms-excel`, `text/plain`, `image/jpeg`, `image/png`, `audio/aac`, `audio/mp4`, `audio/amr`, `audio/mpeg`, `audio/ogg`, `codecs=opus`, `video/mp4`, `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -594,7 +732,7 @@ try {
 ## `sendMessageAudio()`
 
 ```php
-sendMessageAudio($sender_audio): \OpenAPI\Client\Model\SentMessage
+sendMessageAudio($sender_audio): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎵 Send media-audio message
@@ -609,21 +747,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_audio = new \OpenAPI\Client\Model\SenderAudio(); // \OpenAPI\Client\Model\SenderAudio | Message audio
+$sender_audio = {"to":"61371989950","media":"https://filesamples.com/samples/audio/mp3/sample1.mp3"}; // \Purelines\WhapiSdk\Model\SenderAudio | Message audio
 
 try {
     $result = $apiInstance->sendMessageAudio($sender_audio);
@@ -637,11 +775,76 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_audio** | [**\OpenAPI\Client\Model\SenderAudio**](../Model/SenderAudio.md)| Message audio | |
+| **sender_audio** | [**\Purelines\WhapiSdk\Model\SenderAudio**](../Model/SenderAudio.md)| Message audio | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendMessageCarousel()`
+
+```php
+sendMessageCarousel($sender_carousel): \Purelines\WhapiSdk\Model\SentMessage
+```
+
+🖼️ Send carousel message
+
+Sends interactive carousel messages with media, captions, and buttons (link, call, reply). The carousel messaging feature depends on WhatsApp updates. For more information, please visit the [Buttons Status topic](https://support.whapi.cloud/help-desk/faq/current-status-of-buttons-on-whatsapp).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sender_carousel = new \Purelines\WhapiSdk\Model\SenderCarousel(); // \Purelines\WhapiSdk\Model\SenderCarousel | Message carousel
+
+try {
+    $result = $apiInstance->sendMessageCarousel($sender_carousel);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->sendMessageCarousel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_carousel** | [**\Purelines\WhapiSdk\Model\SenderCarousel**](../Model/SenderCarousel.md)| Message carousel | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -659,12 +862,12 @@ try {
 ## `sendMessageContact()`
 
 ```php
-sendMessageContact($sender_contact): \OpenAPI\Client\Model\SentMessage
+sendMessageContact($sender_contact): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 👤 Send contact message
 
-Simple and object, this method allows you to send a contact. You don't need to have it added to your contacts list, all you have to do is fill in the method attributes with the contact information and send. [A few ready examples](https://support.whapi.cloud/help-desk/sending/overview-of-other-methods-for-sending/send-contact-vcard)
+Simple and straightforward, this method allows you to send a contact. You don't need to have it added to your contacts list; simply fill in the method attributes with the contact information and send. [A few ready examples](https://support.whapi.cloud/help-desk/sending/overview-of-other-methods-for-sending/send-contact-vcard)
 
 ### Example
 
@@ -674,21 +877,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_contact = new \OpenAPI\Client\Model\SenderContact(); // \OpenAPI\Client\Model\SenderContact | Message contact
+$sender_contact = {"to":"61371989950","name":"Name of contact","vcard":"BEGIN:VCARD\nVERSION:3.0\nN:Last Name;Example First Name;;;\nFN:Example First Name Last Name\nORG:Company Name Department\nTITLE:Job Title\nNOTE:null\nTEL;type=Mobile:+90 850242323\nitem1.URL:www.youdomain.com\nitem1.X-ABLabel:OTHER\nEMAIL;TYPE=Home:test@yourdomain.com\nitem2.ADR;type=Home:;;Street Example;Istanbul;;;Turkey\nitem2.X-ABADR:\nEND:VCARD"}; // \Purelines\WhapiSdk\Model\SenderContact | Message contact
 
 try {
     $result = $apiInstance->sendMessageContact($sender_contact);
@@ -702,11 +905,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_contact** | [**\OpenAPI\Client\Model\SenderContact**](../Model/SenderContact.md)| Message contact | |
+| **sender_contact** | [**\Purelines\WhapiSdk\Model\SenderContact**](../Model/SenderContact.md)| Message contact | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -724,7 +927,7 @@ try {
 ## `sendMessageContactList()`
 
 ```php
-sendMessageContactList($sender_contact_list): \OpenAPI\Client\Model\SentMessage
+sendMessageContactList($sender_contact_list): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 👥 Send contact list message
@@ -739,21 +942,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_contact_list = new \OpenAPI\Client\Model\SenderContactList(); // \OpenAPI\Client\Model\SenderContactList | Message contact list
+$sender_contact_list = new \Purelines\WhapiSdk\Model\SenderContactList(); // \Purelines\WhapiSdk\Model\SenderContactList | Message contact list
 
 try {
     $result = $apiInstance->sendMessageContactList($sender_contact_list);
@@ -767,11 +970,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_contact_list** | [**\OpenAPI\Client\Model\SenderContactList**](../Model/SenderContactList.md)| Message contact list | |
+| **sender_contact_list** | [**\Purelines\WhapiSdk\Model\SenderContactList**](../Model/SenderContactList.md)| Message contact list | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -789,7 +992,7 @@ try {
 ## `sendMessageDocument()`
 
 ```php
-sendMessageDocument($sender_document): \OpenAPI\Client\Model\SentMessage
+sendMessageDocument($sender_document): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📑 Send media-document message
@@ -804,21 +1007,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_document = new \OpenAPI\Client\Model\SenderDocument(); // \OpenAPI\Client\Model\SenderDocument | Message document
+$sender_document = {"to":"61371989950","media":"https://filesamples.com/samples/document/pdf/sample2.pdf","filename":"Example","caption":"Text caption under the document"}; // \Purelines\WhapiSdk\Model\SenderDocument | Message document
 
 try {
     $result = $apiInstance->sendMessageDocument($sender_document);
@@ -832,11 +1035,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_document** | [**\OpenAPI\Client\Model\SenderDocument**](../Model/SenderDocument.md)| Message document | |
+| **sender_document** | [**\Purelines\WhapiSdk\Model\SenderDocument**](../Model/SenderDocument.md)| Message document | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -854,7 +1057,7 @@ try {
 ## `sendMessageGif()`
 
 ```php
-sendMessageGif($sender_gif): \OpenAPI\Client\Model\SentMessage
+sendMessageGif($sender_gif): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎬 Send media-gif message
@@ -869,21 +1072,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_gif = new \OpenAPI\Client\Model\SenderGif(); // \OpenAPI\Client\Model\SenderGif | Message gif
+$sender_gif = {"to":"61371989950","media":"https://theminimalistfisherman.com/wp-content/uploads/2024/01/confused-cat-gif.gif"}; // \Purelines\WhapiSdk\Model\SenderGif | Message gif
 
 try {
     $result = $apiInstance->sendMessageGif($sender_gif);
@@ -897,11 +1100,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_gif** | [**\OpenAPI\Client\Model\SenderGif**](../Model/SenderGif.md)| Message gif | |
+| **sender_gif** | [**\Purelines\WhapiSdk\Model\SenderGif**](../Model/SenderGif.md)| Message gif | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -919,7 +1122,7 @@ try {
 ## `sendMessageImage()`
 
 ```php
-sendMessageImage($sender_image): \OpenAPI\Client\Model\SentMessage
+sendMessageImage($sender_image): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🖼 Send media-image message
@@ -934,21 +1137,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_image = new \OpenAPI\Client\Model\SenderImage(); // \OpenAPI\Client\Model\SenderImage | Message image
+$sender_image = {"to":"61371989950","caption":"Hello, this message was sent via API!","media":"https://upload.wikimedia.org/wikipedia/commons/3/3f/JPEG_example_flower.jpg"}; // \Purelines\WhapiSdk\Model\SenderImage | Message image
 
 try {
     $result = $apiInstance->sendMessageImage($sender_image);
@@ -962,11 +1165,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_image** | [**\OpenAPI\Client\Model\SenderImage**](../Model/SenderImage.md)| Message image | |
+| **sender_image** | [**\Purelines\WhapiSdk\Model\SenderImage**](../Model/SenderImage.md)| Message image | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -984,12 +1187,12 @@ try {
 ## `sendMessageInteractive()`
 
 ```php
-sendMessageInteractive($sender_interactive): \OpenAPI\Client\Model\SentMessage
+sendMessageInteractive($sender_interactive): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎮 Send interactive message
 
-This endpoint is responsible for sending messages with buttons. The section is constantly updated as the functionality of buttons depends on WhatsApp updates. Button sending is currently available. For more information, please visit the [Button Status topic](https://support.whapi.cloud/help-desk/faq/current-status-of-buttons-on-whatsapp).
+This endpoint is responsible for sending messages with buttons. The section is constantly updated as the functionality of buttons depends on WhatsApp updates. Attention! The functionality of sending messages with buttons is not stable! For more information, please visit the [Button Status topic](https://support.whapi.cloud/help-desk/faq/current-status-of-buttons-on-whatsapp).
 
 ### Example
 
@@ -999,21 +1202,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_interactive = new \OpenAPI\Client\Model\SenderInteractive(); // \OpenAPI\Client\Model\SenderInteractive | Message interactive
+$sender_interactive = new \Purelines\WhapiSdk\Model\SenderInteractive(); // \Purelines\WhapiSdk\Model\SenderInteractive | Message interactive
 
 try {
     $result = $apiInstance->sendMessageInteractive($sender_interactive);
@@ -1027,11 +1230,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_interactive** | [**\OpenAPI\Client\Model\SenderInteractive**](../Model/SenderInteractive.md)| Message interactive | |
+| **sender_interactive** | [**\Purelines\WhapiSdk\Model\SenderInteractive**](../Model/SenderInteractive.md)| Message interactive | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1049,7 +1252,7 @@ try {
 ## `sendMessageLinkPreview()`
 
 ```php
-sendMessageLinkPreview($sender_link_preview): \OpenAPI\Client\Model\SentMessage
+sendMessageLinkPreview($sender_link_preview): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📎 Send link preview message
@@ -1064,21 +1267,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_link_preview = new \OpenAPI\Client\Model\SenderLinkPreview(); // \OpenAPI\Client\Model\SenderLinkPreview | Message link preview send parameters
+$sender_link_preview = {"to":"61371989950","body":"Here you can write text about a page on this site. It is important that this text must contain a link to be sent in the message! https://whapi.cloud/features","title":"The title of your link","media":"https://whapi.cloud/assets/img/content/whatsapp-cloud-api.png"}; // \Purelines\WhapiSdk\Model\SenderLinkPreview | Message link preview send parameters
 
 try {
     $result = $apiInstance->sendMessageLinkPreview($sender_link_preview);
@@ -1092,11 +1295,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_link_preview** | [**\OpenAPI\Client\Model\SenderLinkPreview**](../Model/SenderLinkPreview.md)| Message link preview send parameters | |
+| **sender_link_preview** | [**\Purelines\WhapiSdk\Model\SenderLinkPreview**](../Model/SenderLinkPreview.md)| Message link preview send parameters | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1114,7 +1317,7 @@ try {
 ## `sendMessageLiveLocation()`
 
 ```php
-sendMessageLiveLocation($sender_live_location): \OpenAPI\Client\Model\SentMessage
+sendMessageLiveLocation($sender_live_location): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🧭 Send live location message
@@ -1127,21 +1330,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_live_location = new \OpenAPI\Client\Model\SenderLiveLocation(); // \OpenAPI\Client\Model\SenderLiveLocation | Message live location
+$sender_live_location = new \Purelines\WhapiSdk\Model\SenderLiveLocation(); // \Purelines\WhapiSdk\Model\SenderLiveLocation | Message live location
 
 try {
     $result = $apiInstance->sendMessageLiveLocation($sender_live_location);
@@ -1155,11 +1358,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_live_location** | [**\OpenAPI\Client\Model\SenderLiveLocation**](../Model/SenderLiveLocation.md)| Message live location | |
+| **sender_live_location** | [**\Purelines\WhapiSdk\Model\SenderLiveLocation**](../Model/SenderLiveLocation.md)| Message live location | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1177,7 +1380,7 @@ try {
 ## `sendMessageLocation()`
 
 ```php
-sendMessageLocation($sender_location): \OpenAPI\Client\Model\SentMessage
+sendMessageLocation($sender_location): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📍 Send location message
@@ -1192,21 +1395,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_location = new \OpenAPI\Client\Model\SenderLocation(); // \OpenAPI\Client\Model\SenderLocation | Message location
+$sender_location = new \Purelines\WhapiSdk\Model\SenderLocation(); // \Purelines\WhapiSdk\Model\SenderLocation | Message location
 
 try {
     $result = $apiInstance->sendMessageLocation($sender_location);
@@ -1220,11 +1423,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_location** | [**\OpenAPI\Client\Model\SenderLocation**](../Model/SenderLocation.md)| Message location | |
+| **sender_location** | [**\Purelines\WhapiSdk\Model\SenderLocation**](../Model/SenderLocation.md)| Message location | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1242,7 +1445,7 @@ try {
 ## `sendMessagePoll()`
 
 ```php
-sendMessagePoll($sender_poll): \OpenAPI\Client\Model\SentMessage
+sendMessagePoll($sender_poll): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📊 Send poll message
@@ -1257,21 +1460,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_poll = new \OpenAPI\Client\Model\SenderPoll(); // \OpenAPI\Client\Model\SenderPoll | Message poll
+$sender_poll = new \Purelines\WhapiSdk\Model\SenderPoll(); // \Purelines\WhapiSdk\Model\SenderPoll | Message poll
 
 try {
     $result = $apiInstance->sendMessagePoll($sender_poll);
@@ -1285,11 +1488,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_poll** | [**\OpenAPI\Client\Model\SenderPoll**](../Model/SenderPoll.md)| Message poll | |
+| **sender_poll** | [**\Purelines\WhapiSdk\Model\SenderPoll**](../Model/SenderPoll.md)| Message poll | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1307,7 +1510,7 @@ try {
 ## `sendMessageShort()`
 
 ```php
-sendMessageShort($sender_short): \OpenAPI\Client\Model\SentMessage
+sendMessageShort($sender_short): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 📹 Send media-short video message (PTV)
@@ -1322,21 +1525,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_short = new \OpenAPI\Client\Model\SenderShort(); // \OpenAPI\Client\Model\SenderShort | Message short
+$sender_short = {"to":"61371989950","media":"https://whapi.cloud/assets/img/example/example.mp4"}; // \Purelines\WhapiSdk\Model\SenderShort | Message short
 
 try {
     $result = $apiInstance->sendMessageShort($sender_short);
@@ -1350,11 +1553,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_short** | [**\OpenAPI\Client\Model\SenderShort**](../Model/SenderShort.md)| Message short | |
+| **sender_short** | [**\Purelines\WhapiSdk\Model\SenderShort**](../Model/SenderShort.md)| Message short | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1372,7 +1575,7 @@ try {
 ## `sendMessageSticker()`
 
 ```php
-sendMessageSticker($sender_sticker): \OpenAPI\Client\Model\SentMessage
+sendMessageSticker($sender_sticker): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎭 Send media-sticker message
@@ -1387,21 +1590,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_sticker = new \OpenAPI\Client\Model\SenderSticker(); // \OpenAPI\Client\Model\SenderSticker | Message sticker
+$sender_sticker = new \Purelines\WhapiSdk\Model\SenderSticker(); // \Purelines\WhapiSdk\Model\SenderSticker | Message sticker
 
 try {
     $result = $apiInstance->sendMessageSticker($sender_sticker);
@@ -1415,11 +1618,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_sticker** | [**\OpenAPI\Client\Model\SenderSticker**](../Model/SenderSticker.md)| Message sticker | |
+| **sender_sticker** | [**\Purelines\WhapiSdk\Model\SenderSticker**](../Model/SenderSticker.md)| Message sticker | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1437,7 +1640,7 @@ try {
 ## `sendMessageStory()`
 
 ```php
-sendMessageStory($sender_stories): \OpenAPI\Client\Model\SentMessage
+sendMessageStory($sender_stories): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 👁️‍🗨️ Send story message
@@ -1452,21 +1655,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_stories = new \OpenAPI\Client\Model\SenderStories(); // \OpenAPI\Client\Model\SenderStories | Stories post parameters
+$sender_stories = new \Purelines\WhapiSdk\Model\SenderStories(); // \Purelines\WhapiSdk\Model\SenderStories | Stories post parameters
 
 try {
     $result = $apiInstance->sendMessageStory($sender_stories);
@@ -1480,11 +1683,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_stories** | [**\OpenAPI\Client\Model\SenderStories**](../Model/SenderStories.md)| Stories post parameters | |
+| **sender_stories** | [**\Purelines\WhapiSdk\Model\SenderStories**](../Model/SenderStories.md)| Stories post parameters | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1502,7 +1705,7 @@ try {
 ## `sendMessageStoryAudio()`
 
 ```php
-sendMessageStoryAudio($sender_stories_audio): \OpenAPI\Client\Model\SentMessage
+sendMessageStoryAudio($sender_stories_audio): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎵️ Send story audio message
@@ -1517,21 +1720,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_stories_audio = new \OpenAPI\Client\Model\SenderStoriesAudio(); // \OpenAPI\Client\Model\SenderStoriesAudio | Stories post parameters for audio
+$sender_stories_audio = new \Purelines\WhapiSdk\Model\SenderStoriesAudio(); // \Purelines\WhapiSdk\Model\SenderStoriesAudio | Stories post parameters for audio
 
 try {
     $result = $apiInstance->sendMessageStoryAudio($sender_stories_audio);
@@ -1545,11 +1748,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_stories_audio** | [**\OpenAPI\Client\Model\SenderStoriesAudio**](../Model/SenderStoriesAudio.md)| Stories post parameters for audio | |
+| **sender_stories_audio** | [**\Purelines\WhapiSdk\Model\SenderStoriesAudio**](../Model/SenderStoriesAudio.md)| Stories post parameters for audio | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1567,7 +1770,7 @@ try {
 ## `sendMessageStoryMedia()`
 
 ```php
-sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts): \OpenAPI\Client\Model\SentMessage
+sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🖼 Send story media message
@@ -1582,21 +1785,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$media = new \OpenAPI\Client\Model\SendMediaMedia(); // \OpenAPI\Client\Model\SendMediaMedia
+$media = new \Purelines\WhapiSdk\Model\SendMediaMedia(); // \Purelines\WhapiSdk\Model\SendMediaMedia
 $mime_type = 'mime_type_example'; // string | Mime type of media
 $no_encode = True; // bool | Do not use our encoding
 $no_cache = True; // bool | Do not use the cache in a request
@@ -1605,9 +1808,10 @@ $preview = 'preview_example'; // string | Optional. Base64 encoded preview of th
 $width = 56; // int | Width of the media in pixels
 $height = 56; // int | Height of the media in pixels
 $contacts = array('contacts_example'); // string[] | List of contacts to send the story to
+$exclude_contacts = array('exclude_contacts_example'); // string[] | List of contacts to exclude
 
 try {
-    $result = $apiInstance->sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts);
+    $result = $apiInstance->sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->sendMessageStoryMedia: ', $e->getMessage(), PHP_EOL;
@@ -1618,7 +1822,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **media** | [**\OpenAPI\Client\Model\SendMediaMedia**](../Model/SendMediaMedia.md)|  | |
+| **media** | [**\Purelines\WhapiSdk\Model\SendMediaMedia**](../Model/SendMediaMedia.md)|  | |
 | **mime_type** | **string**| Mime type of media | [optional] |
 | **no_encode** | **bool**| Do not use our encoding | [optional] |
 | **no_cache** | **bool**| Do not use the cache in a request | [optional] |
@@ -1627,10 +1831,11 @@ try {
 | **width** | **int**| Width of the media in pixels | [optional] |
 | **height** | **int**| Height of the media in pixels | [optional] |
 | **contacts** | [**string[]**](../Model/string.md)| List of contacts to send the story to | [optional] |
+| **exclude_contacts** | [**string[]**](../Model/string.md)| List of contacts to exclude | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1648,7 +1853,7 @@ try {
 ## `sendMessageStoryText()`
 
 ```php
-sendMessageStoryText($sender_stories_text): \OpenAPI\Client\Model\SentMessage
+sendMessageStoryText($sender_stories_text): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 💬 Send story text message
@@ -1663,21 +1868,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_stories_text = new \OpenAPI\Client\Model\SenderStoriesText(); // \OpenAPI\Client\Model\SenderStoriesText | Text stories post parameters
+$sender_stories_text = new \Purelines\WhapiSdk\Model\SenderStoriesText(); // \Purelines\WhapiSdk\Model\SenderStoriesText | Text stories post parameters
 
 try {
     $result = $apiInstance->sendMessageStoryText($sender_stories_text);
@@ -1691,11 +1896,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_stories_text** | [**\OpenAPI\Client\Model\SenderStoriesText**](../Model/SenderStoriesText.md)| Text stories post parameters | |
+| **sender_stories_text** | [**\Purelines\WhapiSdk\Model\SenderStoriesText**](../Model/SenderStoriesText.md)| Text stories post parameters | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1713,7 +1918,7 @@ try {
 ## `sendMessageText()`
 
 ```php
-sendMessageText($sender_text): \OpenAPI\Client\Model\SentMessage
+sendMessageText($sender_text): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 💬 Send text message
@@ -1728,21 +1933,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_text = new \OpenAPI\Client\Model\SenderText(); // \OpenAPI\Client\Model\SenderText | Message text
+$sender_text = {"to":"61371989950","body":"Hello, this message was sent via API!"}; // \Purelines\WhapiSdk\Model\SenderText | Message text
 
 try {
     $result = $apiInstance->sendMessageText($sender_text);
@@ -1756,11 +1961,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_text** | [**\OpenAPI\Client\Model\SenderText**](../Model/SenderText.md)| Message text | |
+| **sender_text** | [**\Purelines\WhapiSdk\Model\SenderText**](../Model/SenderText.md)| Message text | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1778,7 +1983,7 @@ try {
 ## `sendMessageVideo()`
 
 ```php
-sendMessageVideo($sender_video): \OpenAPI\Client\Model\SentMessage
+sendMessageVideo($sender_video): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎥 Send media-video message
@@ -1793,21 +1998,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_video = new \OpenAPI\Client\Model\SenderVideo(); // \OpenAPI\Client\Model\SenderVideo | Message video
+$sender_video = {"to":"61371989950","caption":"Hello, this message was sent via API!","media":"https://whapi.cloud/assets/img/example/example.mp4"}; // \Purelines\WhapiSdk\Model\SenderVideo | Message video
 
 try {
     $result = $apiInstance->sendMessageVideo($sender_video);
@@ -1821,11 +2026,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_video** | [**\OpenAPI\Client\Model\SenderVideo**](../Model/SenderVideo.md)| Message video | |
+| **sender_video** | [**\Purelines\WhapiSdk\Model\SenderVideo**](../Model/SenderVideo.md)| Message video | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1843,7 +2048,7 @@ try {
 ## `sendMessageVoice()`
 
 ```php
-sendMessageVoice($sender_voice): \OpenAPI\Client\Model\SentMessage
+sendMessageVoice($sender_voice): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🎤 Send media-voice message
@@ -1858,21 +2063,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$sender_voice = new \OpenAPI\Client\Model\SenderVoice(); // \OpenAPI\Client\Model\SenderVoice | Message voice
+$sender_voice = {"to":"61371989950","media":"https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"}; // \Purelines\WhapiSdk\Model\SenderVoice | Message voice
 
 try {
     $result = $apiInstance->sendMessageVoice($sender_voice);
@@ -1886,11 +2091,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_voice** | [**\OpenAPI\Client\Model\SenderVoice**](../Model/SenderVoice.md)| Message voice | |
+| **sender_voice** | [**\Purelines\WhapiSdk\Model\SenderVoice**](../Model/SenderVoice.md)| Message voice | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1908,7 +2113,7 @@ try {
 ## `starMessage()`
 
 ```php
-starMessage($message_id, $star): \OpenAPI\Client\Model\ResponseSuccess
+starMessage($message_id, $star): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 ⭐ Star message
@@ -1921,22 +2126,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $message_id = 'message_id_example'; // string | Message ID
-$star = new \OpenAPI\Client\Model\Star(); // \OpenAPI\Client\Model\Star | Star message
+$star = new \Purelines\WhapiSdk\Model\Star(); // \Purelines\WhapiSdk\Model\Star | Star message
 
 try {
     $result = $apiInstance->starMessage($message_id, $star);
@@ -1951,11 +2156,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **message_id** | **string**| Message ID | |
-| **star** | [**\OpenAPI\Client\Model\Star**](../Model/Star.md)| Star message | |
+| **star** | [**\Purelines\WhapiSdk\Model\Star**](../Model/Star.md)| Star message | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1964,6 +2169,69 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `unpinMessage()`
+
+```php
+unpinMessage($message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Unpin message
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$message_id = 'message_id_example'; // string | Message ID
+
+try {
+    $result = $apiInstance->unpinMessage($message_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->unpinMessage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **message_id** | **string**| Message ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

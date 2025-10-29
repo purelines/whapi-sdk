@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **file_size** | **int** | File size in bytes |
 **file_name** | **string** | Optional. File name | [optional]
 **sha256** | **string** | Checksum | [optional]
-**timestamp** | **float** | Created at | [optional]
+**timestamp** | **float** | Created at |
 **animated** | **bool** | Optional. For stickers, this field indicates whether the sticker is animated. | [optional]
 **width** | **int** | Width of the media in pixels | [optional]
 **height** | **int** | Height of the media in pixels | [optional]

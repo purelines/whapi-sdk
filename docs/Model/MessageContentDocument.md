@@ -10,11 +10,10 @@ Name | Type | Description | Notes
 **file_size** | **int** | File size in bytes |
 **file_name** | **string** | Optional. File name | [optional]
 **sha256** | **string** | Checksum | [optional]
-**timestamp** | **float** | Created at | [optional]
-**caption** | **string** | Optional. Text caption under the document. | [optional]
-**filename** | **string** | Optional. File name | [optional]
-**buttons** | [**\OpenAPI\Client\Model\Button[]**](Button.md) |  | [optional]
+**timestamp** | **float** | Created at |
+**buttons** | [**\Purelines\WhapiSdk\Model\Button[]**](Button.md) |  | [optional]
 **view_once** | **bool** | Is view once | [optional]
+**caption** | **string** | Optional. Text caption under the document. | [optional]
 **page_count** | **int** | Optional. Number of pages | [optional]
 **preview** | **string** | Optional. Base64 encoded preview of the media. In JPEG format. | [optional]
 

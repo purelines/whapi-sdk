@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contacts** | **string[]** | List of contacts to send the story to | [optional]
+**exclude_contacts** | **string[]** | List of contacts to exclude | [optional]
 **caption** | **string** | Optional. Text caption under the media. |
 **background_color** | **string** | Background color of the story (ARGB) | [optional] [default to '#00000000']
 **caption_color** | **string** | Caption color of the story (ARGB) | [optional] [default to '#FFFFFFFF']

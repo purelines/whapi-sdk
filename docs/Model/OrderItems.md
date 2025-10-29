@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**\OpenAPI\Client\Model\ProductItem[]**](ProductItem.md) |  | [optional]
+**items** | [**\Purelines\WhapiSdk\Model\ProductItem[]**](ProductItem.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

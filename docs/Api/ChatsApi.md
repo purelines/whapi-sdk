@@ -1,4 +1,6 @@
-# OpenAPI\Client\ChatsApi
+# Purelines\WhapiSdk\ChatsApi
+
+Manage the chats of the channel
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -8,13 +10,13 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**deleteChat()**](ChatsApi.md#deleteChat) | **DELETE** /chats/{ChatID} | ❌ Delete chat |
 | [**getChat()**](ChatsApi.md#getChat) | **GET** /chats/{ChatID} | Get chat |
 | [**getChats()**](ChatsApi.md#getChats) | **GET** /chats | Get chats |
-| [**patchChat()**](ChatsApi.md#patchChat) | **PATCH** /chats/{ChatID} | 📌 Pin/Unpin chat or 🔇 Mute/Unmute chat or ✔✔ Mark as read/unread chat |
+| [**patchChat()**](ChatsApi.md#patchChat) | **PATCH** /chats/{ChatID} | ⚙️Chat Settings Management: Pin, Mute, Read, Disappearing. |
 
 
 ## `archiveChat()`
 
 ```php
-archiveChat($chat_id, $archive_chat_request): \OpenAPI\Client\Model\ResponseSuccess
+archiveChat($chat_id, $archive_chat_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 🗄 Archive/Unarchive chat
@@ -29,22 +31,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChatsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $chat_id = 'chat_id_example'; // string | Chat ID
-$archive_chat_request = new \OpenAPI\Client\Model\ArchiveChatRequest(); // \OpenAPI\Client\Model\ArchiveChatRequest | Request body
+$archive_chat_request = new \Purelines\WhapiSdk\Model\ArchiveChatRequest(); // \Purelines\WhapiSdk\Model\ArchiveChatRequest | Request body
 
 try {
     $result = $apiInstance->archiveChat($chat_id, $archive_chat_request);
@@ -59,11 +61,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **chat_id** | **string**| Chat ID | |
-| **archive_chat_request** | [**\OpenAPI\Client\Model\ArchiveChatRequest**](../Model/ArchiveChatRequest.md)| Request body | [optional] |
+| **archive_chat_request** | [**\Purelines\WhapiSdk\Model\ArchiveChatRequest**](../Model/ArchiveChatRequest.md)| Request body | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -81,7 +83,7 @@ try {
 ## `deleteChat()`
 
 ```php
-deleteChat($chat_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteChat($chat_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 ❌ Delete chat
@@ -96,15 +98,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChatsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -128,7 +130,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -146,7 +148,7 @@ try {
 ## `getChat()`
 
 ```php
-getChat($chat_id): \OpenAPI\Client\Model\Chat
+getChat($chat_id): \Purelines\WhapiSdk\Model\Chat
 ```
 
 Get chat
@@ -161,15 +163,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChatsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -193,7 +195,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Chat**](../Model/Chat.md)
+[**\Purelines\WhapiSdk\Model\Chat**](../Model/Chat.md)
 
 ### Authorization
 
@@ -211,7 +213,7 @@ try {
 ## `getChats()`
 
 ```php
-getChats($count, $offset): \OpenAPI\Client\Model\ChatsList
+getChats($count, $offset): \Purelines\WhapiSdk\Model\ChatsList
 ```
 
 Get chats
@@ -226,15 +228,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChatsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -260,7 +262,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ChatsList**](../Model/ChatsList.md)
+[**\Purelines\WhapiSdk\Model\ChatsList**](../Model/ChatsList.md)
 
 ### Authorization
 
@@ -278,10 +280,10 @@ try {
 ## `patchChat()`
 
 ```php
-patchChat($chat_id, $patch_chat_request): \OpenAPI\Client\Model\ResponseSuccess
+patchChat($chat_id, $patch_chat_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
-📌 Pin/Unpin chat or 🔇 Mute/Unmute chat or ✔✔ Mark as read/unread chat
+⚙️Chat Settings Management: Pin, Mute, Read, Disappearing.
 
 This method is responsible for pinning and unpinning, for muting and unmuting your chats. Also this method is responsible for performing the action of reading an entire chat or marking a chat as unread
 
@@ -293,22 +295,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChatsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChatsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $chat_id = 'chat_id_example'; // string | Chat ID
-$patch_chat_request = new \OpenAPI\Client\Model\PatchChatRequest(); // \OpenAPI\Client\Model\PatchChatRequest | Request body
+$patch_chat_request = new \Purelines\WhapiSdk\Model\PatchChatRequest(); // \Purelines\WhapiSdk\Model\PatchChatRequest | Request body
 
 try {
     $result = $apiInstance->patchChat($chat_id, $patch_chat_request);
@@ -323,11 +325,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **chat_id** | **string**| Chat ID | |
-| **patch_chat_request** | [**\OpenAPI\Client\Model\PatchChatRequest**](../Model/PatchChatRequest.md)| Request body | [optional] |
+| **patch_chat_request** | [**\Purelines\WhapiSdk\Model\PatchChatRequest**](../Model/PatchChatRequest.md)| Request body | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 

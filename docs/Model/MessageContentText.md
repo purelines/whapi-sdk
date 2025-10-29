@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **body** | **string** | Message text |
-**buttons** | [**\OpenAPI\Client\Model\Button[]**](Button.md) |  | [optional]
-**sections** | [**\OpenAPI\Client\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
+**buttons** | [**\Purelines\WhapiSdk\Model\Button[]**](Button.md) |  | [optional]
+**sections** | [**\Purelines\WhapiSdk\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
 **button** | **string** | Button text for list of message | [optional]
 **view_once** | **bool** | Is view once | [optional]
 

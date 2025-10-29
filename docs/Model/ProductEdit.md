@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **product_retailer_id** | **string** | Product Retailer ID | [optional]
-**currency** | [**\OpenAPI\Client\Model\Currency**](Currency.md) |  | [optional]
-**images** | **string[]** | Product images urls |
+**currency** | [**\Purelines\WhapiSdk\Model\Currency**](Currency.md) |  | [optional]
+**images** | [**\Purelines\WhapiSdk\Model\GroupIconParametersMedia[]**](GroupIconParametersMedia.md) | Product images urls |
 **availability** | **string** | Product availability | [optional]
 **name** | **string** | Product name | [optional]
 **url** | **string** | Product url | [optional]

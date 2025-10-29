@@ -1,4 +1,6 @@
-# OpenAPI\Client\PresencesApi
+# Purelines\WhapiSdk\PresencesApi
+
+Contact presence
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -13,7 +15,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 ## `getPresence()`
 
 ```php
-getPresence($entry_id): \OpenAPI\Client\Model\Presence
+getPresence($entry_id): \Purelines\WhapiSdk\Model\Presence
 ```
 
 Get presence
@@ -26,21 +28,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PresencesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\PresencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$entry_id = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\GetPresenceEntryIDParameter(); // \OpenAPI\Client\Model\GetPresenceEntryIDParameter | Contact or group id
+$entry_id = new \Purelines\WhapiSdk\Model\\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter(); // \Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter | Contact or group id
 
 try {
     $result = $apiInstance->getPresence($entry_id);
@@ -54,11 +56,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **entry_id** | [**\OpenAPI\Client\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
+| **entry_id** | [**\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Presence**](../Model/Presence.md)
+[**\Purelines\WhapiSdk\Model\Presence**](../Model/Presence.md)
 
 ### Authorization
 
@@ -76,7 +78,7 @@ try {
 ## `sendMePresence()`
 
 ```php
-sendMePresence($send_me_presence_request): \OpenAPI\Client\Model\CheckContactResponse
+sendMePresence($send_me_presence_request): \Purelines\WhapiSdk\Model\CheckContactResponse
 ```
 
 Send online or offline presence
@@ -89,21 +91,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PresencesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\PresencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$send_me_presence_request = new \OpenAPI\Client\Model\SendMePresenceRequest(); // \OpenAPI\Client\Model\SendMePresenceRequest
+$send_me_presence_request = new \Purelines\WhapiSdk\Model\SendMePresenceRequest(); // \Purelines\WhapiSdk\Model\SendMePresenceRequest
 
 try {
     $result = $apiInstance->sendMePresence($send_me_presence_request);
@@ -117,11 +119,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **send_me_presence_request** | [**\OpenAPI\Client\Model\SendMePresenceRequest**](../Model/SendMePresenceRequest.md)|  | [optional] |
+| **send_me_presence_request** | [**\Purelines\WhapiSdk\Model\SendMePresenceRequest**](../Model/SendMePresenceRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
+[**\Purelines\WhapiSdk\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
 
 ### Authorization
 
@@ -139,7 +141,7 @@ try {
 ## `sendPresence()`
 
 ```php
-sendPresence($entry_id, $send_presence_request): \OpenAPI\Client\Model\CheckContactResponse
+sendPresence($entry_id, $send_presence_request): \Purelines\WhapiSdk\Model\CheckContactResponse
 ```
 
 Send typing or recording presence
@@ -152,22 +154,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PresencesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\PresencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$entry_id = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\GetPresenceEntryIDParameter(); // \OpenAPI\Client\Model\GetPresenceEntryIDParameter | Contact or group id
-$send_presence_request = new \OpenAPI\Client\Model\SendPresenceRequest(); // \OpenAPI\Client\Model\SendPresenceRequest
+$entry_id = new \Purelines\WhapiSdk\Model\\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter(); // \Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter | Contact or group id
+$send_presence_request = new \Purelines\WhapiSdk\Model\SendPresenceRequest(); // \Purelines\WhapiSdk\Model\SendPresenceRequest
 
 try {
     $result = $apiInstance->sendPresence($entry_id, $send_presence_request);
@@ -181,12 +183,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **entry_id** | [**\OpenAPI\Client\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
-| **send_presence_request** | [**\OpenAPI\Client\Model\SendPresenceRequest**](../Model/SendPresenceRequest.md)|  | [optional] |
+| **entry_id** | [**\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
+| **send_presence_request** | [**\Purelines\WhapiSdk\Model\SendPresenceRequest**](../Model/SendPresenceRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
+[**\Purelines\WhapiSdk\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
 
 ### Authorization
 
@@ -204,7 +206,7 @@ try {
 ## `subscribePresence()`
 
 ```php
-subscribePresence($entry_id): \OpenAPI\Client\Model\CheckContactResponse
+subscribePresence($entry_id): \Purelines\WhapiSdk\Model\CheckContactResponse
 ```
 
 Subscribe to presence
@@ -217,21 +219,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PresencesApi(
+$apiInstance = new Purelines\WhapiSdk\Api\PresencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$entry_id = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\GetPresenceEntryIDParameter(); // \OpenAPI\Client\Model\GetPresenceEntryIDParameter | Contact or group id
+$entry_id = new \Purelines\WhapiSdk\Model\\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter(); // \Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter | Contact or group id
 
 try {
     $result = $apiInstance->subscribePresence($entry_id);
@@ -245,11 +247,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **entry_id** | [**\OpenAPI\Client\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
+| **entry_id** | [**\Purelines\WhapiSdk\Model\GetPresenceEntryIDParameter**](../Model/.md)| Contact or group id | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
+[**\Purelines\WhapiSdk\Model\CheckContactResponse**](../Model/CheckContactResponse.md)
 
 ### Authorization
 

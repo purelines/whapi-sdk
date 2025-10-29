@@ -1,4 +1,6 @@
-# OpenAPI\Client\NewslettersApi
+# Purelines\WhapiSdk\NewslettersApi
+
+WhatsApp Channels Functions (Threads)
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -28,7 +30,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 ## `acceptNewsletterAdminRequest()`
 
 ```php
-acceptNewsletterAdminRequest($newsletter_id, $contact_id): \OpenAPI\Client\Model\ResponseSuccess
+acceptNewsletterAdminRequest($newsletter_id, $contact_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Accept Newsletter admin-request
@@ -43,15 +45,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -77,7 +79,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -95,7 +97,7 @@ try {
 ## `createNewsletter()`
 
 ```php
-createNewsletter($create_newsletter_request): \OpenAPI\Client\Model\Newsletter
+createNewsletter($create_newsletter_request): \Purelines\WhapiSdk\Model\Newsletter
 ```
 
 Create newsletter
@@ -110,21 +112,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_newsletter_request = {"name":"<Newsletter Title>"}; // \OpenAPI\Client\Model\CreateNewsletterRequest | Newsletter data
+$create_newsletter_request = {"name":"<Newsletter Title>"}; // \Purelines\WhapiSdk\Model\CreateNewsletterRequest | Newsletter data
 
 try {
     $result = $apiInstance->createNewsletter($create_newsletter_request);
@@ -138,11 +140,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_newsletter_request** | [**\OpenAPI\Client\Model\CreateNewsletterRequest**](../Model/CreateNewsletterRequest.md)| Newsletter data | |
+| **create_newsletter_request** | [**\Purelines\WhapiSdk\Model\CreateNewsletterRequest**](../Model/CreateNewsletterRequest.md)| Newsletter data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Newsletter**](../Model/Newsletter.md)
+[**\Purelines\WhapiSdk\Model\Newsletter**](../Model/Newsletter.md)
 
 ### Authorization
 
@@ -160,7 +162,7 @@ try {
 ## `createNewsletterAdminInvite()`
 
 ```php
-createNewsletterAdminInvite($newsletter_id, $contact_id, $create_newsletter_admin_invite_request): \OpenAPI\Client\Model\SentMessage
+createNewsletterAdminInvite($newsletter_id, $contact_id, $create_newsletter_admin_invite_request): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 Create Newsletter admin-invite
@@ -175,15 +177,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -191,7 +193,7 @@ $apiInstance = new OpenAPI\Client\Api\NewslettersApi(
 );
 $newsletter_id = 'newsletter_id_example'; // string | Newsletter ID
 $contact_id = 'contact_id_example'; // string | Contact ID
-$create_newsletter_admin_invite_request = {"message":"<Invite message>"}; // \OpenAPI\Client\Model\CreateNewsletterAdminInviteRequest | Invite data
+$create_newsletter_admin_invite_request = {"message":"<Invite message>"}; // \Purelines\WhapiSdk\Model\CreateNewsletterAdminInviteRequest | Invite data
 
 try {
     $result = $apiInstance->createNewsletterAdminInvite($newsletter_id, $contact_id, $create_newsletter_admin_invite_request);
@@ -207,11 +209,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **newsletter_id** | **string**| Newsletter ID | |
 | **contact_id** | **string**| Contact ID | |
-| **create_newsletter_admin_invite_request** | [**\OpenAPI\Client\Model\CreateNewsletterAdminInviteRequest**](../Model/CreateNewsletterAdminInviteRequest.md)| Invite data | [optional] |
+| **create_newsletter_admin_invite_request** | [**\Purelines\WhapiSdk\Model\CreateNewsletterAdminInviteRequest**](../Model/CreateNewsletterAdminInviteRequest.md)| Invite data | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -229,7 +231,7 @@ try {
 ## `deleteNewsletter()`
 
 ```php
-deleteNewsletter($newsletter_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteNewsletter($newsletter_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Delete newsletter
@@ -244,15 +246,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -276,7 +278,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -294,7 +296,7 @@ try {
 ## `demoteNewsletterAdmin()`
 
 ```php
-demoteNewsletterAdmin($newsletter_id, $contact_id): \OpenAPI\Client\Model\ResponseSuccess
+demoteNewsletterAdmin($newsletter_id, $contact_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Demote Newsletter admin
@@ -309,15 +311,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -343,7 +345,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -361,7 +363,7 @@ try {
 ## `editNewsletter()`
 
 ```php
-editNewsletter($newsletter_id, $edit_newsletter_request): \OpenAPI\Client\Model\Newsletter
+editNewsletter($newsletter_id, $edit_newsletter_request): \Purelines\WhapiSdk\Model\Newsletter
 ```
 
 Edit newsletter
@@ -376,22 +378,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $newsletter_id = 'newsletter_id_example'; // string | Newsletter ID
-$edit_newsletter_request = {"name":"<Newsletter Title>"}; // \OpenAPI\Client\Model\EditNewsletterRequest | Newsletter data
+$edit_newsletter_request = {"name":"<Newsletter Title>"}; // \Purelines\WhapiSdk\Model\EditNewsletterRequest | Newsletter data
 
 try {
     $result = $apiInstance->editNewsletter($newsletter_id, $edit_newsletter_request);
@@ -406,11 +408,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **newsletter_id** | **string**| Newsletter ID | |
-| **edit_newsletter_request** | [**\OpenAPI\Client\Model\EditNewsletterRequest**](../Model/EditNewsletterRequest.md)| Newsletter data | |
+| **edit_newsletter_request** | [**\Purelines\WhapiSdk\Model\EditNewsletterRequest**](../Model/EditNewsletterRequest.md)| Newsletter data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Newsletter**](../Model/Newsletter.md)
+[**\Purelines\WhapiSdk\Model\Newsletter**](../Model/Newsletter.md)
 
 ### Authorization
 
@@ -428,7 +430,7 @@ try {
 ## `findNewsletter()`
 
 ```php
-findNewsletter($country_code, $search, $newsletter_field, $cursor, $count, $sort): \OpenAPI\Client\Model\NewslettersListPaged
+findNewsletter($country_code, $search, $newsletter_field, $cursor, $count, $sort): \Purelines\WhapiSdk\Model\NewslettersListPaged
 ```
 
 Find newsletters by filters
@@ -443,15 +445,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -485,7 +487,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewslettersListPaged**](../Model/NewslettersListPaged.md)
+[**\Purelines\WhapiSdk\Model\NewslettersListPaged**](../Model/NewslettersListPaged.md)
 
 ### Authorization
 
@@ -503,7 +505,7 @@ try {
 ## `getMessagesNewsletter()`
 
 ```php
-getMessagesNewsletter($newsletter_id, $count, $before, $after): \OpenAPI\Client\Model\MessagesList
+getMessagesNewsletter($newsletter_id, $count, $before, $after): \Purelines\WhapiSdk\Model\MessagesList
 ```
 
 Get newsletter messages
@@ -518,15 +520,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -556,7 +558,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MessagesList**](../Model/MessagesList.md)
+[**\Purelines\WhapiSdk\Model\MessagesList**](../Model/MessagesList.md)
 
 ### Authorization
 
@@ -574,12 +576,12 @@ try {
 ## `getNewsletter()`
 
 ```php
-getNewsletter($newsletter_id, $user_role): \OpenAPI\Client\Model\MessagesList
+getNewsletter($newsletter_id, $user_role): \Purelines\WhapiSdk\Model\MessagesList
 ```
 
 Get newsletter information
 
-This method returns the metadata of a WhatsApp Channel, including all newsletter information and its views
+This method returns the metadata of a WhatsApp Channel
 
 ### Example
 
@@ -589,15 +591,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -623,7 +625,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MessagesList**](../Model/MessagesList.md)
+[**\Purelines\WhapiSdk\Model\MessagesList**](../Model/MessagesList.md)
 
 ### Authorization
 
@@ -641,10 +643,12 @@ try {
 ## `getNewsletterByInviteCode()`
 
 ```php
-getNewsletterByInviteCode($newsletter_invite_code): \OpenAPI\Client\Model\Newsletter
+getNewsletterByInviteCode($newsletter_invite_code): \Purelines\WhapiSdk\Model\Newsletter
 ```
 
 Get newsletter info by invite code
+
+Read more about how to get an [invite code](https://support.whapi.cloud/help-desk/channels/send-channel-newsletter-invite-link).
 
 ### Example
 
@@ -654,15 +658,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -686,7 +690,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Newsletter**](../Model/Newsletter.md)
+[**\Purelines\WhapiSdk\Model\Newsletter**](../Model/Newsletter.md)
 
 ### Authorization
 
@@ -704,7 +708,7 @@ try {
 ## `getNewsletters()`
 
 ```php
-getNewsletters($count, $offset): \OpenAPI\Client\Model\NewslettersList
+getNewsletters($count, $offset): \Purelines\WhapiSdk\Model\NewslettersList
 ```
 
 Get newsletters
@@ -719,15 +723,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -753,7 +757,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewslettersList**](../Model/NewslettersList.md)
+[**\Purelines\WhapiSdk\Model\NewslettersList**](../Model/NewslettersList.md)
 
 ### Authorization
 
@@ -771,7 +775,7 @@ try {
 ## `recommendedNewsletter()`
 
 ```php
-recommendedNewsletter($country_code, $cursor, $count): \OpenAPI\Client\Model\NewslettersListPaged
+recommendedNewsletter($country_code, $cursor, $count): \Purelines\WhapiSdk\Model\NewslettersListPaged
 ```
 
 Get recommended newsletters by country
@@ -786,15 +790,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -822,7 +826,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewslettersListPaged**](../Model/NewslettersListPaged.md)
+[**\Purelines\WhapiSdk\Model\NewslettersListPaged**](../Model/NewslettersListPaged.md)
 
 ### Authorization
 
@@ -840,7 +844,7 @@ try {
 ## `revokeNewsletterAdminInvite()`
 
 ```php
-revokeNewsletterAdminInvite($newsletter_id, $contact_id): \OpenAPI\Client\Model\ResponseSuccess
+revokeNewsletterAdminInvite($newsletter_id, $contact_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Revoke Newsletter admin-invite
@@ -855,15 +859,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -889,7 +893,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -907,10 +911,12 @@ try {
 ## `sendNewsletterInvite()`
 
 ```php
-sendNewsletterInvite($newsletter_invite_code, $sender_newsletter_invite_by_code): \OpenAPI\Client\Model\SentMessage
+sendNewsletterInvite($newsletter_invite_code, $sender_newsletter_invite_by_code): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 Send newsletter invite link
+
+Read more about how to get an [invite code](https://support.whapi.cloud/help-desk/channels/send-channel-newsletter-invite-link).
 
 ### Example
 
@@ -920,22 +926,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $newsletter_invite_code = 'newsletter_invite_code_example'; // string | Newsletter Invite Code
-$sender_newsletter_invite_by_code = new \OpenAPI\Client\Model\SenderNewsletterInviteByCode(); // \OpenAPI\Client\Model\SenderNewsletterInviteByCode | Newsletter invite link
+$sender_newsletter_invite_by_code = new \Purelines\WhapiSdk\Model\SenderNewsletterInviteByCode(); // \Purelines\WhapiSdk\Model\SenderNewsletterInviteByCode | Newsletter invite link
 
 try {
     $result = $apiInstance->sendNewsletterInvite($newsletter_invite_code, $sender_newsletter_invite_by_code);
@@ -950,11 +956,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **newsletter_invite_code** | **string**| Newsletter Invite Code | |
-| **sender_newsletter_invite_by_code** | [**\OpenAPI\Client\Model\SenderNewsletterInviteByCode**](../Model/SenderNewsletterInviteByCode.md)| Newsletter invite link | |
+| **sender_newsletter_invite_by_code** | [**\Purelines\WhapiSdk\Model\SenderNewsletterInviteByCode**](../Model/SenderNewsletterInviteByCode.md)| Newsletter invite link | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -972,7 +978,7 @@ try {
 ## `subscribeNewsletter()`
 
 ```php
-subscribeNewsletter($newsletter_id): \OpenAPI\Client\Model\ResponseSuccess
+subscribeNewsletter($newsletter_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Subscribe to newsletter
@@ -987,15 +993,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1019,7 +1025,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1037,12 +1043,12 @@ try {
 ## `subscribeNewsletterInvite()`
 
 ```php
-subscribeNewsletterInvite($newsletter_invite_code): \OpenAPI\Client\Model\ResponseSuccess
+subscribeNewsletterInvite($newsletter_invite_code): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Subscribe to newsletter by invite code
 
-This method is responsible for following a WhatsApp Channel
+This method is responsible for following a WhatsApp Channel. Read more about how to get an [invite code](https://support.whapi.cloud/help-desk/channels/send-channel-newsletter-invite-link).
 
 ### Example
 
@@ -1052,15 +1058,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1084,7 +1090,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1102,7 +1108,7 @@ try {
 ## `trackingNewsletter()`
 
 ```php
-trackingNewsletter($newsletter_id): \OpenAPI\Client\Model\ResponseSuccess
+trackingNewsletter($newsletter_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Subscribe to newsletter updates
@@ -1117,15 +1123,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1149,7 +1155,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1167,7 +1173,7 @@ try {
 ## `unsubscribeNewsletter()`
 
 ```php
-unsubscribeNewsletter($newsletter_id): \OpenAPI\Client\Model\ResponseSuccess
+unsubscribeNewsletter($newsletter_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Unsubscribe from newsletter
@@ -1182,15 +1188,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1214,7 +1220,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1232,12 +1238,12 @@ try {
 ## `unsubscribeNewsletterInvite()`
 
 ```php
-unsubscribeNewsletterInvite($newsletter_invite_code): \OpenAPI\Client\Model\ResponseSuccess
+unsubscribeNewsletterInvite($newsletter_invite_code): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Unsubscribe from newsletter by invite code
 
-This method is responsible for unfollowing a WhatsApp Channel
+This method is responsible for unfollowing a WhatsApp Channel. Read more about how to get an [invite code](https://support.whapi.cloud/help-desk/channels/send-channel-newsletter-invite-link).
 
 ### Example
 
@@ -1247,15 +1253,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NewslettersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1279,7 +1285,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 

@@ -1,4 +1,6 @@
-# OpenAPI\Client\BusinessApi
+# Purelines\WhapiSdk\BusinessApi
+
+WhatsApp Business Functions
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -12,7 +14,9 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**editCollection()**](BusinessApi.md#editCollection) | **PATCH** /business/collections/{CollectionID} | Edit collection |
 | [**getBusinessProfile()**](BusinessApi.md#getBusinessProfile) | **GET** /business | Get business profile |
 | [**getCollection()**](BusinessApi.md#getCollection) | **GET** /business/collections/{CollectionID} | Get collection |
+| [**getCollectionProductList()**](BusinessApi.md#getCollectionProductList) | **GET** /business/collections/{CollectionID}/products | Get collection |
 | [**getCollectionsList()**](BusinessApi.md#getCollectionsList) | **GET** /business/collections | Get collections |
+| [**getCollectionsProductsList()**](BusinessApi.md#getCollectionsProductsList) | **GET** /business/collections/products | Get collections products |
 | [**getContactProducts()**](BusinessApi.md#getContactProducts) | **GET** /business/{ContactID}/products | Get products by Contact ID |
 | [**getOrderItems()**](BusinessApi.md#getOrderItems) | **GET** /business/orders/{OrderID} | Get order items |
 | [**getProduct()**](BusinessApi.md#getProduct) | **GET** /business/products/{ProductID} | Get product |
@@ -25,7 +29,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 ## `createCollection()`
 
 ```php
-createCollection($business_collection_create): \OpenAPI\Client\Model\BusinessCollectionEditResult
+createCollection($business_collection_create): \Purelines\WhapiSdk\Model\BusinessCollectionEditResult
 ```
 
 Create collection
@@ -40,21 +44,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$business_collection_create = new \OpenAPI\Client\Model\BusinessCollectionCreate(); // \OpenAPI\Client\Model\BusinessCollectionCreate | Business collection parameters
+$business_collection_create = new \Purelines\WhapiSdk\Model\BusinessCollectionCreate(); // \Purelines\WhapiSdk\Model\BusinessCollectionCreate | Business collection parameters
 
 try {
     $result = $apiInstance->createCollection($business_collection_create);
@@ -68,11 +72,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **business_collection_create** | [**\OpenAPI\Client\Model\BusinessCollectionCreate**](../Model/BusinessCollectionCreate.md)| Business collection parameters | |
+| **business_collection_create** | [**\Purelines\WhapiSdk\Model\BusinessCollectionCreate**](../Model/BusinessCollectionCreate.md)| Business collection parameters | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessCollectionEditResult**](../Model/BusinessCollectionEditResult.md)
+[**\Purelines\WhapiSdk\Model\BusinessCollectionEditResult**](../Model/BusinessCollectionEditResult.md)
 
 ### Authorization
 
@@ -90,7 +94,7 @@ try {
 ## `createProduct()`
 
 ```php
-createProduct($product_create): \OpenAPI\Client\Model\Product
+createProduct($product_create): \Purelines\WhapiSdk\Model\Product
 ```
 
 Create product
@@ -105,21 +109,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$product_create = new \OpenAPI\Client\Model\ProductCreate(); // \OpenAPI\Client\Model\ProductCreate | Request body
+$product_create = new \Purelines\WhapiSdk\Model\ProductCreate(); // \Purelines\WhapiSdk\Model\ProductCreate | Request body
 
 try {
     $result = $apiInstance->createProduct($product_create);
@@ -133,11 +137,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **product_create** | [**\OpenAPI\Client\Model\ProductCreate**](../Model/ProductCreate.md)| Request body | [optional] |
+| **product_create** | [**\Purelines\WhapiSdk\Model\ProductCreate**](../Model/ProductCreate.md)| Request body | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Product**](../Model/Product.md)
+[**\Purelines\WhapiSdk\Model\Product**](../Model/Product.md)
 
 ### Authorization
 
@@ -155,7 +159,7 @@ try {
 ## `deleteCollection()`
 
 ```php
-deleteCollection($collection_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteCollection($collection_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Delete collection
@@ -170,15 +174,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -202,7 +206,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -220,7 +224,7 @@ try {
 ## `deleteProduct()`
 
 ```php
-deleteProduct($product_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteProduct($product_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Delete product
@@ -235,15 +239,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -267,7 +271,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -285,7 +289,7 @@ try {
 ## `editBusinessProfile()`
 
 ```php
-editBusinessProfile($business_profile_custom): \OpenAPI\Client\Model\ResponseSuccess
+editBusinessProfile($business_profile_custom): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Edit your Business Profile
@@ -300,21 +304,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$business_profile_custom = new \OpenAPI\Client\Model\BusinessProfileCustom(); // \OpenAPI\Client\Model\BusinessProfileCustom | Request body
+$business_profile_custom = new \Purelines\WhapiSdk\Model\BusinessProfileCustom(); // \Purelines\WhapiSdk\Model\BusinessProfileCustom | Request body
 
 try {
     $result = $apiInstance->editBusinessProfile($business_profile_custom);
@@ -328,11 +332,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **business_profile_custom** | [**\OpenAPI\Client\Model\BusinessProfileCustom**](../Model/BusinessProfileCustom.md)| Request body | [optional] |
+| **business_profile_custom** | [**\Purelines\WhapiSdk\Model\BusinessProfileCustom**](../Model/BusinessProfileCustom.md)| Request body | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -350,7 +354,7 @@ try {
 ## `editCollection()`
 
 ```php
-editCollection($collection_id, $business_collection_edit): \OpenAPI\Client\Model\BusinessCollectionEditResult
+editCollection($collection_id, $business_collection_edit): \Purelines\WhapiSdk\Model\BusinessCollectionEditResult
 ```
 
 Edit collection
@@ -365,22 +369,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $collection_id = 'collection_id_example'; // string | Collection ID
-$business_collection_edit = new \OpenAPI\Client\Model\BusinessCollectionEdit(); // \OpenAPI\Client\Model\BusinessCollectionEdit | Business collection edit parameters
+$business_collection_edit = new \Purelines\WhapiSdk\Model\BusinessCollectionEdit(); // \Purelines\WhapiSdk\Model\BusinessCollectionEdit | Business collection edit parameters
 
 try {
     $result = $apiInstance->editCollection($collection_id, $business_collection_edit);
@@ -395,11 +399,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **collection_id** | **string**| Collection ID | |
-| **business_collection_edit** | [**\OpenAPI\Client\Model\BusinessCollectionEdit**](../Model/BusinessCollectionEdit.md)| Business collection edit parameters | |
+| **business_collection_edit** | [**\Purelines\WhapiSdk\Model\BusinessCollectionEdit**](../Model/BusinessCollectionEdit.md)| Business collection edit parameters | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessCollectionEditResult**](../Model/BusinessCollectionEditResult.md)
+[**\Purelines\WhapiSdk\Model\BusinessCollectionEditResult**](../Model/BusinessCollectionEditResult.md)
 
 ### Authorization
 
@@ -417,7 +421,7 @@ try {
 ## `getBusinessProfile()`
 
 ```php
-getBusinessProfile(): \OpenAPI\Client\Model\BusinessProfile
+getBusinessProfile(): \Purelines\WhapiSdk\Model\BusinessProfile
 ```
 
 Get business profile
@@ -432,15 +436,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -461,7 +465,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessProfile**](../Model/BusinessProfile.md)
+[**\Purelines\WhapiSdk\Model\BusinessProfile**](../Model/BusinessProfile.md)
 
 ### Authorization
 
@@ -479,7 +483,7 @@ This endpoint does not need any parameter.
 ## `getCollection()`
 
 ```php
-getCollection($collection_id): \OpenAPI\Client\Model\BusinessCollection
+getCollection($collection_id): \Purelines\WhapiSdk\Model\BusinessCollection
 ```
 
 Get collection
@@ -494,15 +498,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -526,7 +530,74 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessCollection**](../Model/BusinessCollection.md)
+[**\Purelines\WhapiSdk\Model\BusinessCollection**](../Model/BusinessCollection.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCollectionProductList()`
+
+```php
+getCollectionProductList($collection_id, $products_count): \Purelines\WhapiSdk\Model\ProductsList
+```
+
+Get collection
+
+With this method you will be able to get business collection products
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$collection_id = 'collection_id_example'; // string | Collection ID
+$products_count = 10; // float | Count of products in collection to return
+
+try {
+    $result = $apiInstance->getCollectionProductList($collection_id, $products_count);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessApi->getCollectionProductList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **collection_id** | **string**| Collection ID | |
+| **products_count** | **float**| Count of products in collection to return | [optional] [default to 10] |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ProductsList**](../Model/ProductsList.md)
 
 ### Authorization
 
@@ -544,12 +615,12 @@ try {
 ## `getCollectionsList()`
 
 ```php
-getCollectionsList($count, $offset): \OpenAPI\Client\Model\BusinessCollectionList
+getCollectionsList($count, $offset): \Purelines\WhapiSdk\Model\BusinessCollectionList
 ```
 
 Get collections
 
-With this method you will be able to get the collections list from a Whatsapp Business catalog
+With this method you will be able to get the collections list from a Whatsapp Business catalog. Products count in collection is 10.
 
 ### Example
 
@@ -559,15 +630,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -593,7 +664,76 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessCollectionList**](../Model/BusinessCollectionList.md)
+[**\Purelines\WhapiSdk\Model\BusinessCollectionList**](../Model/BusinessCollectionList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCollectionsProductsList()`
+
+```php
+getCollectionsProductsList($count, $offset, $products_count): \Purelines\WhapiSdk\Model\BusinessCollectionList
+```
+
+Get collections products
+
+With this method you will be able to get the products list from a Whatsapp Business catalog
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$count = 100; // float | Count of objects to return
+$offset = 3.4; // float | Offset of objects to return
+$products_count = 10; // float | Count of products in collection to return
+
+try {
+    $result = $apiInstance->getCollectionsProductsList($count, $offset, $products_count);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessApi->getCollectionsProductsList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **count** | **float**| Count of objects to return | [optional] [default to 100] |
+| **offset** | **float**| Offset of objects to return | [optional] |
+| **products_count** | **float**| Count of products in collection to return | [optional] [default to 10] |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\BusinessCollectionList**](../Model/BusinessCollectionList.md)
 
 ### Authorization
 
@@ -611,7 +751,7 @@ try {
 ## `getContactProducts()`
 
 ```php
-getContactProducts($contact_id, $count, $offset): \OpenAPI\Client\Model\ProductsList
+getContactProducts($contact_id, $count, $offset): \Purelines\WhapiSdk\Model\ProductsList
 ```
 
 Get products by Contact ID
@@ -626,15 +766,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -662,7 +802,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductsList**](../Model/ProductsList.md)
+[**\Purelines\WhapiSdk\Model\ProductsList**](../Model/ProductsList.md)
 
 ### Authorization
 
@@ -680,7 +820,7 @@ try {
 ## `getOrderItems()`
 
 ```php
-getOrderItems($order_id, $order_token): \OpenAPI\Client\Model\OrderItems
+getOrderItems($order_id, $order_token): \Purelines\WhapiSdk\Model\OrderItems
 ```
 
 Get order items
@@ -695,15 +835,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -729,7 +869,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\OrderItems**](../Model/OrderItems.md)
+[**\Purelines\WhapiSdk\Model\OrderItems**](../Model/OrderItems.md)
 
 ### Authorization
 
@@ -747,7 +887,7 @@ try {
 ## `getProduct()`
 
 ```php
-getProduct($product_id): \OpenAPI\Client\Model\Product
+getProduct($product_id): \Purelines\WhapiSdk\Model\Product
 ```
 
 Get product
@@ -762,15 +902,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -794,7 +934,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Product**](../Model/Product.md)
+[**\Purelines\WhapiSdk\Model\Product**](../Model/Product.md)
 
 ### Authorization
 
@@ -812,7 +952,7 @@ try {
 ## `getProducts()`
 
 ```php
-getProducts($count, $offset): \OpenAPI\Client\Model\ProductsList
+getProducts($count, $offset): \Purelines\WhapiSdk\Model\ProductsList
 ```
 
 Get products
@@ -827,15 +967,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -861,7 +1001,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductsList**](../Model/ProductsList.md)
+[**\Purelines\WhapiSdk\Model\ProductsList**](../Model/ProductsList.md)
 
 ### Authorization
 
@@ -879,7 +1019,7 @@ try {
 ## `sendCatalog()`
 
 ```php
-sendCatalog($contact_id, $sender_catalog_by_id): \OpenAPI\Client\Model\SentMessage
+sendCatalog($contact_id, $sender_catalog_by_id): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 Send catalog by Contact ID (phone number)
@@ -892,22 +1032,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $contact_id = 'contact_id_example'; // string | Contact ID
-$sender_catalog_by_id = new \OpenAPI\Client\Model\SenderCatalogByID(); // \OpenAPI\Client\Model\SenderCatalogByID | Message catalog
+$sender_catalog_by_id = new \Purelines\WhapiSdk\Model\SenderCatalogByID(); // \Purelines\WhapiSdk\Model\SenderCatalogByID | Message catalog
 
 try {
     $result = $apiInstance->sendCatalog($contact_id, $sender_catalog_by_id);
@@ -922,11 +1062,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **contact_id** | **string**| Contact ID | |
-| **sender_catalog_by_id** | [**\OpenAPI\Client\Model\SenderCatalogByID**](../Model/SenderCatalogByID.md)| Message catalog | |
+| **sender_catalog_by_id** | [**\Purelines\WhapiSdk\Model\SenderCatalogByID**](../Model/SenderCatalogByID.md)| Message catalog | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -944,7 +1084,7 @@ try {
 ## `sendProduct()`
 
 ```php
-sendProduct($product_id, $sender_product_from_catalog): \OpenAPI\Client\Model\SentMessage
+sendProduct($product_id, $sender_product_from_catalog): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 Send product
@@ -959,22 +1099,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $product_id = 'product_id_example'; // string | Product ID
-$sender_product_from_catalog = new \OpenAPI\Client\Model\SenderProductFromCatalog(); // \OpenAPI\Client\Model\SenderProductFromCatalog | Message product
+$sender_product_from_catalog = new \Purelines\WhapiSdk\Model\SenderProductFromCatalog(); // \Purelines\WhapiSdk\Model\SenderProductFromCatalog | Message product
 
 try {
     $result = $apiInstance->sendProduct($product_id, $sender_product_from_catalog);
@@ -989,11 +1129,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product_id** | **string**| Product ID | |
-| **sender_product_from_catalog** | [**\OpenAPI\Client\Model\SenderProductFromCatalog**](../Model/SenderProductFromCatalog.md)| Message product | |
+| **sender_product_from_catalog** | [**\Purelines\WhapiSdk\Model\SenderProductFromCatalog**](../Model/SenderProductFromCatalog.md)| Message product | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1011,7 +1151,7 @@ try {
 ## `updateProduct()`
 
 ```php
-updateProduct($product_id, $product_edit): \OpenAPI\Client\Model\Product
+updateProduct($product_id, $product_edit): \Purelines\WhapiSdk\Model\Product
 ```
 
 Update product
@@ -1026,22 +1166,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessApi(
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $product_id = 'product_id_example'; // string | Product ID
-$product_edit = new \OpenAPI\Client\Model\ProductEdit(); // \OpenAPI\Client\Model\ProductEdit | Message product
+$product_edit = new \Purelines\WhapiSdk\Model\ProductEdit(); // \Purelines\WhapiSdk\Model\ProductEdit | Message product
 
 try {
     $result = $apiInstance->updateProduct($product_id, $product_edit);
@@ -1056,11 +1196,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product_id** | **string**| Product ID | |
-| **product_edit** | [**\OpenAPI\Client\Model\ProductEdit**](../Model/ProductEdit.md)| Message product | |
+| **product_edit** | [**\Purelines\WhapiSdk\Model\ProductEdit**](../Model/ProductEdit.md)| Message product | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Product**](../Model/Product.md)
+[**\Purelines\WhapiSdk\Model\Product**](../Model/Product.md)
 
 ### Authorization
 

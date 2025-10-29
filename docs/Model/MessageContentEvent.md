@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **description** | **string** | Event description | [optional]
 **join_link** | **string** | Join link | [optional]
 **start** | **int** | Chat timestamp | [optional]
-**responses** | [**\OpenAPI\Client\Model\EventResponse[]**](EventResponse.md) | Event responses | [optional]
+**responses** | [**\Purelines\WhapiSdk\Model\EventResponse[]**](EventResponse.md) | Event responses | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messages** | [**\OpenAPI\Client\Model\Message[]**](Message.md) |  | [optional]
+**messages** | [**\Purelines\WhapiSdk\Model\Message[]**](Message.md) |  | [optional]
 **count** | **int** | Count of requested messages | [optional] [default to 100]
 **total** | **int** | Total number of returned messages | [optional]
 **offset** | **int** | Offset of requested messages | [optional] [default to 0]

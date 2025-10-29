@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **file_size** | **int** | File size in bytes |
 **file_name** | **string** | Optional. File name | [optional]
 **sha256** | **string** | Checksum | [optional]
-**timestamp** | **float** | Created at | [optional]
+**timestamp** | **float** | Created at |
 **caption** | **string** | Optional. Text caption under the media. | [optional]
 **preview** | **string** | Optional. Base64 encoded preview of the media. In JPEG format. | [optional]
 **width** | **int** | Width of the media in pixels | [optional]
 **height** | **int** | Height of the media in pixels | [optional]
-**buttons** | [**\OpenAPI\Client\Model\Button[]**](Button.md) |  | [optional]
+**buttons** | [**\Purelines\WhapiSdk\Model\Button[]**](Button.md) |  | [optional]
 **view_once** | **bool** | Is view once | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

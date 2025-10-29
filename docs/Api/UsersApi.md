@@ -1,23 +1,90 @@
-# OpenAPI\Client\UsersApi
+# Purelines\WhapiSdk\UsersApi
+
+Manage the WhatsApp users related to the channel
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**changeStatus()**](UsersApi.md#changeStatus) | **PUT** /status | Change status text |
 | [**getUserProfile()**](UsersApi.md#getUserProfile) | **GET** /users/profile | User info |
 | [**loginUser()**](UsersApi.md#loginUser) | **GET** /users/login | Login user with QR-base64 |
 | [**loginUserImage()**](UsersApi.md#loginUserImage) | **GET** /users/login/image | Login user with QR-image |
 | [**loginUserRowData()**](UsersApi.md#loginUserRowData) | **GET** /users/login/rowdata | Login user with QR-rowdata |
 | [**loginUserViaAuthCode()**](UsersApi.md#loginUserViaAuthCode) | **GET** /users/login/{PhoneNumber} | Get auth code by phone number |
-| [**loginUserViaMobile()**](UsersApi.md#loginUserViaMobile) | **POST** /users/login/mobile | Login in whatsapp with phone number |
 | [**logoutUser()**](UsersApi.md#logoutUser) | **POST** /users/logout | Logout user |
 | [**updateUserProfile()**](UsersApi.md#updateUserProfile) | **PATCH** /users/profile | Update user info |
 
 
+## `changeStatus()`
+
+```php
+changeStatus($change_status_request): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Change status text
+
+Updates the \"About\" text of the account
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$change_status_request = new \Purelines\WhapiSdk\Model\ChangeStatusRequest(); // \Purelines\WhapiSdk\Model\ChangeStatusRequest | New about text
+
+try {
+    $result = $apiInstance->changeStatus($change_status_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->changeStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **change_status_request** | [**\Purelines\WhapiSdk\Model\ChangeStatusRequest**](../Model/ChangeStatusRequest.md)| New about text | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getUserProfile()`
 
 ```php
-getUserProfile(): \OpenAPI\Client\Model\UserProfile
+getUserProfile(): \Purelines\WhapiSdk\Model\UserProfile
 ```
 
 User info
@@ -32,15 +99,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -61,7 +128,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UserProfile**](../Model/UserProfile.md)
+[**\Purelines\WhapiSdk\Model\UserProfile**](../Model/UserProfile.md)
 
 ### Authorization
 
@@ -79,7 +146,7 @@ This endpoint does not need any parameter.
 ## `loginUser()`
 
 ```php
-loginUser($wakeup, $qr_parameters): \OpenAPI\Client\Model\QR
+loginUser($wakeup, $size, $width, $height, $color_light, $color_dark): \Purelines\WhapiSdk\Model\QR
 ```
 
 Login user with QR-base64
@@ -94,25 +161,29 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $wakeup = true; // bool | If set to false, the channel will not launch
-$qr_parameters = {"size":200,"width":300,"height":300,"color_dark":"#000000","color_light":"#ffffff"}; // \OpenAPI\Client\Model\QRParameters | Parameters for generating QR code
+$size = 3.4; // float | Size of QR-code
+$width = 3.4; // float | Width of result image
+$height = 3.4; // float | Height of result image
+$color_light = 'color_light_example'; // string | Background color
+$color_dark = 'color_dark_example'; // string | Color of code
 
 try {
-    $result = $apiInstance->loginUser($wakeup, $qr_parameters);
+    $result = $apiInstance->loginUser($wakeup, $size, $width, $height, $color_light, $color_dark);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->loginUser: ', $e->getMessage(), PHP_EOL;
@@ -124,11 +195,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **wakeup** | **bool**| If set to false, the channel will not launch | [optional] [default to true] |
-| **qr_parameters** | [**\OpenAPI\Client\Model\QRParameters**](../Model/QRParameters.md)| Parameters for generating QR code | [optional] |
+| **size** | **float**| Size of QR-code | [optional] |
+| **width** | **float**| Width of result image | [optional] |
+| **height** | **float**| Height of result image | [optional] |
+| **color_light** | **string**| Background color | [optional] |
+| **color_dark** | **string**| Color of code | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\QR**](../Model/QR.md)
+[**\Purelines\WhapiSdk\Model\QR**](../Model/QR.md)
 
 ### Authorization
 
@@ -136,7 +211,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -146,7 +221,7 @@ try {
 ## `loginUserImage()`
 
 ```php
-loginUserImage($wakeup, $qr_parameters): \SplFileObject
+loginUserImage($wakeup, $size, $width, $height, $color_light, $color_dark): \SplFileObject
 ```
 
 Login user with QR-image
@@ -161,25 +236,29 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $wakeup = true; // bool | If set to false, the channel will not launch
-$qr_parameters = {"size":200,"width":300,"height":300,"color_dark":"#000000","color_light":"#ffffff"}; // \OpenAPI\Client\Model\QRParameters | Parameters for generating QR code
+$size = 3.4; // float | Size of QR-code
+$width = 3.4; // float | Width of result image
+$height = 3.4; // float | Height of result image
+$color_light = 'color_light_example'; // string | Background color
+$color_dark = 'color_dark_example'; // string | Color of code
 
 try {
-    $result = $apiInstance->loginUserImage($wakeup, $qr_parameters);
+    $result = $apiInstance->loginUserImage($wakeup, $size, $width, $height, $color_light, $color_dark);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->loginUserImage: ', $e->getMessage(), PHP_EOL;
@@ -191,7 +270,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **wakeup** | **bool**| If set to false, the channel will not launch | [optional] [default to true] |
-| **qr_parameters** | [**\OpenAPI\Client\Model\QRParameters**](../Model/QRParameters.md)| Parameters for generating QR code | [optional] |
+| **size** | **float**| Size of QR-code | [optional] |
+| **width** | **float**| Width of result image | [optional] |
+| **height** | **float**| Height of result image | [optional] |
+| **color_light** | **string**| Background color | [optional] |
+| **color_dark** | **string**| Color of code | [optional] |
 
 ### Return type
 
@@ -203,7 +286,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `image/png`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -213,7 +296,7 @@ try {
 ## `loginUserRowData()`
 
 ```php
-loginUserRowData($wakeup): \OpenAPI\Client\Model\QR
+loginUserRowData($wakeup): \Purelines\WhapiSdk\Model\QR
 ```
 
 Login user with QR-rowdata
@@ -226,15 +309,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -258,7 +341,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\QR**](../Model/QR.md)
+[**\Purelines\WhapiSdk\Model\QR**](../Model/QR.md)
 
 ### Authorization
 
@@ -276,7 +359,7 @@ try {
 ## `loginUserViaAuthCode()`
 
 ```php
-loginUserViaAuthCode($phone_number): \OpenAPI\Client\Model\AuthCode
+loginUserViaAuthCode($phone_number): \Purelines\WhapiSdk\Model\AuthCode
 ```
 
 Get auth code by phone number
@@ -291,15 +374,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -323,7 +406,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthCode**](../Model/AuthCode.md)
+[**\Purelines\WhapiSdk\Model\AuthCode**](../Model/AuthCode.md)
 
 ### Authorization
 
@@ -338,75 +421,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `loginUserViaMobile()`
-
-```php
-loginUserViaMobile($request_mobile_login): \OpenAPI\Client\Model\MobileLoginStatus
-```
-
-Login in whatsapp with phone number
-
-Allows you to register a number on WhatsApp. Requires mandatory use of mobile proxies!
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
-
-// Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$request_mobile_login = new \OpenAPI\Client\Model\RequestMobileLogin(); // \OpenAPI\Client\Model\RequestMobileLogin | Request body for login mobile
-
-try {
-    $result = $apiInstance->loginUserViaMobile($request_mobile_login);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->loginUserViaMobile: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **request_mobile_login** | [**\OpenAPI\Client\Model\RequestMobileLogin**](../Model/RequestMobileLogin.md)| Request body for login mobile | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\MobileLoginStatus**](../Model/MobileLoginStatus.md)
-
-### Authorization
-
-[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `logoutUser()`
 
 ```php
-logoutUser(): \OpenAPI\Client\Model\ResponseSuccess
+logoutUser(): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Logout user
@@ -419,15 +437,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -448,7 +466,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -466,7 +484,7 @@ This endpoint does not need any parameter.
 ## `updateUserProfile()`
 
 ```php
-updateUserProfile($user_profile_update): \OpenAPI\Client\Model\ResponseSuccess
+updateUserProfile($user_profile_update): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Update user info
@@ -481,21 +499,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$user_profile_update = {"name":"Some Cool Name","about":"Some Cool About","icon":"https://pps.whatsapp.net/v/..."}; // \OpenAPI\Client\Model\UserProfileUpdate | Change user profile
+$user_profile_update = {"name":"Some Cool Name","about":"Some Cool About","icon":"https://pps.whatsapp.net/v/..."}; // \Purelines\WhapiSdk\Model\UserProfileUpdate | Change user profile
 
 try {
     $result = $apiInstance->updateUserProfile($user_profile_update);
@@ -509,11 +527,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user_profile_update** | [**\OpenAPI\Client\Model\UserProfileUpdate**](../Model/UserProfileUpdate.md)| Change user profile | |
+| **user_profile_update** | [**\Purelines\WhapiSdk\Model\UserProfileUpdate**](../Model/UserProfileUpdate.md)| Change user profile | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 

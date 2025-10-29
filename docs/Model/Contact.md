@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **profile_pic** | **string** | Profile picture URL | [optional]
 **profile_pic_full** | **string** | Profile full picture URL | [optional]
 **status** | **string** | Contact status | [optional]
+**saved** | **bool** | If true - the contact is saved in the contact list | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

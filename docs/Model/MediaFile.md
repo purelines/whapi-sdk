@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **file_size** | **int** | File size in bytes |
 **file_name** | **string** | Optional. File name | [optional]
 **sha256** | **string** | Checksum | [optional]
-**timestamp** | **float** | Created at | [optional]
+**timestamp** | **float** | Created at |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

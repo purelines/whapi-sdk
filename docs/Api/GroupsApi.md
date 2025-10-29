@@ -1,4 +1,6 @@
-# OpenAPI\Client\GroupsApi
+# Purelines\WhapiSdk\GroupsApi
+
+Manage the groups of the channel
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -6,7 +8,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | ------------- | ------------- | ------------- |
 | [**acceptGroupInvite()**](GroupsApi.md#acceptGroupInvite) | **PUT** /groups | Accept group invite |
 | [**addGroupParticipant()**](GroupsApi.md#addGroupParticipant) | **POST** /groups/{GroupID}/participants | Add group participant |
-| [**approveGroupApplicationsList()**](GroupsApi.md#approveGroupApplicationsList) | **POST** /groups/{GroupID}/applications | Accept group applications for listed users |
+| [**approveGroupApplicationsList()**](GroupsApi.md#approveGroupApplicationsList) | **POST** /groups/{GroupID}/applications | Accept group application for listed user |
 | [**createGroup()**](GroupsApi.md#createGroup) | **POST** /groups | Create group |
 | [**deleteGroupIcon()**](GroupsApi.md#deleteGroupIcon) | **DELETE** /groups/{GroupID}/icon | Delete group icon |
 | [**demoteGroupAdmin()**](GroupsApi.md#demoteGroupAdmin) | **DELETE** /groups/{GroupID}/admins | Demote group admin |
@@ -30,7 +32,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 ## `acceptGroupInvite()`
 
 ```php
-acceptGroupInvite($group_invite): \OpenAPI\Client\Model\NewGroup
+acceptGroupInvite($group_invite): \Purelines\WhapiSdk\Model\NewGroup
 ```
 
 Accept group invite
@@ -45,21 +47,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$group_invite = {"invite_code":"<invite code>"}; // \OpenAPI\Client\Model\GroupInvite | Group data
+$group_invite = {"invite_code":"<invite code>"}; // \Purelines\WhapiSdk\Model\GroupInvite | Group data
 
 try {
     $result = $apiInstance->acceptGroupInvite($group_invite);
@@ -73,11 +75,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **group_invite** | [**\OpenAPI\Client\Model\GroupInvite**](../Model/GroupInvite.md)| Group data | |
+| **group_invite** | [**\Purelines\WhapiSdk\Model\GroupInvite**](../Model/GroupInvite.md)| Group data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewGroup**](../Model/NewGroup.md)
+[**\Purelines\WhapiSdk\Model\NewGroup**](../Model/NewGroup.md)
 
 ### Authorization
 
@@ -95,7 +97,7 @@ try {
 ## `addGroupParticipant()`
 
 ```php
-addGroupParticipant($group_id, $list_participants_request): \OpenAPI\Client\Model\ResponseListParticipants
+addGroupParticipant($group_id, $list_participants_request): \Purelines\WhapiSdk\Model\ResponseListParticipants
 ```
 
 Add group participant
@@ -110,22 +112,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \OpenAPI\Client\Model\ListParticipantsRequest | 
+$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \Purelines\WhapiSdk\Model\ListParticipantsRequest | 
 
 try {
     $result = $apiInstance->addGroupParticipant($group_id, $list_participants_request);
@@ -140,11 +142,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **list_participants_request** | [**\OpenAPI\Client\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
+| **list_participants_request** | [**\Purelines\WhapiSdk\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseListParticipants**](../Model/ResponseListParticipants.md)
+[**\Purelines\WhapiSdk\Model\ResponseListParticipants**](../Model/ResponseListParticipants.md)
 
 ### Authorization
 
@@ -162,12 +164,12 @@ try {
 ## `approveGroupApplicationsList()`
 
 ```php
-approveGroupApplicationsList($group_id, $application_request): \OpenAPI\Client\Model\GroupApplicationChange[]
+approveGroupApplicationsList($group_id, $application_request): \Purelines\WhapiSdk\Model\GroupApplicationChange[]
 ```
 
-Accept group applications for listed users
+Accept group application for listed user
 
-This method returns the list with result of operation for each user
+This method accepts a single join request (application) for the specified group. To accept multiple applications, you need to call this method in a loop, passing each application ID separately.
 
 ### Example
 
@@ -177,22 +179,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$application_request = new \OpenAPI\Client\Model\ApplicationRequest(); // \OpenAPI\Client\Model\ApplicationRequest | Chat ID list
+$application_request = new \Purelines\WhapiSdk\Model\ApplicationRequest(); // \Purelines\WhapiSdk\Model\ApplicationRequest | Chat ID list
 
 try {
     $result = $apiInstance->approveGroupApplicationsList($group_id, $application_request);
@@ -207,11 +209,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **application_request** | [**\OpenAPI\Client\Model\ApplicationRequest**](../Model/ApplicationRequest.md)| Chat ID list | [optional] |
+| **application_request** | [**\Purelines\WhapiSdk\Model\ApplicationRequest**](../Model/ApplicationRequest.md)| Chat ID list | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupApplicationChange[]**](../Model/GroupApplicationChange.md)
+[**\Purelines\WhapiSdk\Model\GroupApplicationChange[]**](../Model/GroupApplicationChange.md)
 
 ### Authorization
 
@@ -229,7 +231,7 @@ try {
 ## `createGroup()`
 
 ```php
-createGroup($create_group_request): \OpenAPI\Client\Model\GroupCreate
+createGroup($create_group_request): \Purelines\WhapiSdk\Model\GroupCreate
 ```
 
 Create group
@@ -244,21 +246,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_group_request = {"subject":"<Group Subject>"}; // \OpenAPI\Client\Model\CreateGroupRequest | Group data
+$create_group_request = {"subject":"<Group Subject>"}; // \Purelines\WhapiSdk\Model\CreateGroupRequest | Group data
 
 try {
     $result = $apiInstance->createGroup($create_group_request);
@@ -272,11 +274,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_group_request** | [**\OpenAPI\Client\Model\CreateGroupRequest**](../Model/CreateGroupRequest.md)| Group data | |
+| **create_group_request** | [**\Purelines\WhapiSdk\Model\CreateGroupRequest**](../Model/CreateGroupRequest.md)| Group data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupCreate**](../Model/GroupCreate.md)
+[**\Purelines\WhapiSdk\Model\GroupCreate**](../Model/GroupCreate.md)
 
 ### Authorization
 
@@ -294,7 +296,7 @@ try {
 ## `deleteGroupIcon()`
 
 ```php
-deleteGroupIcon($group_id): \OpenAPI\Client\Model\ResponseSuccess
+deleteGroupIcon($group_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Delete group icon
@@ -307,15 +309,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -339,7 +341,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -357,7 +359,7 @@ try {
 ## `demoteGroupAdmin()`
 
 ```php
-demoteGroupAdmin($group_id, $list_participants_request): \OpenAPI\Client\Model\ResponseSuccess
+demoteGroupAdmin($group_id, $list_participants_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Demote group admin
@@ -372,22 +374,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \OpenAPI\Client\Model\ListParticipantsRequest | 
+$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \Purelines\WhapiSdk\Model\ListParticipantsRequest | 
 
 try {
     $result = $apiInstance->demoteGroupAdmin($group_id, $list_participants_request);
@@ -402,11 +404,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **list_participants_request** | [**\OpenAPI\Client\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
+| **list_participants_request** | [**\Purelines\WhapiSdk\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -424,7 +426,7 @@ try {
 ## `getGroup()`
 
 ```php
-getGroup($group_id): \OpenAPI\Client\Model\Group
+getGroup($group_id): \Purelines\WhapiSdk\Model\Group
 ```
 
 Get group
@@ -439,15 +441,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -471,7 +473,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Group**](../Model/Group.md)
+[**\Purelines\WhapiSdk\Model\Group**](../Model/Group.md)
 
 ### Authorization
 
@@ -489,7 +491,7 @@ try {
 ## `getGroupApplicationsList()`
 
 ```php
-getGroupApplicationsList($group_id, $count, $offset): \OpenAPI\Client\Model\GroupApplicationList
+getGroupApplicationsList($group_id, $count, $offset): \Purelines\WhapiSdk\Model\GroupApplicationList
 ```
 
 Get list of join requests to the group
@@ -504,15 +506,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -540,7 +542,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupApplicationList**](../Model/GroupApplicationList.md)
+[**\Purelines\WhapiSdk\Model\GroupApplicationList**](../Model/GroupApplicationList.md)
 
 ### Authorization
 
@@ -573,15 +575,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -623,7 +625,7 @@ try {
 ## `getGroupInvite()`
 
 ```php
-getGroupInvite($group_id): \OpenAPI\Client\Model\GroupInvite
+getGroupInvite($group_id): \Purelines\WhapiSdk\Model\GroupInvite
 ```
 
 Get group invite
@@ -638,15 +640,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -670,7 +672,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupInvite**](../Model/GroupInvite.md)
+[**\Purelines\WhapiSdk\Model\GroupInvite**](../Model/GroupInvite.md)
 
 ### Authorization
 
@@ -688,7 +690,7 @@ try {
 ## `getGroupMetadataByInviteCode()`
 
 ```php
-getGroupMetadataByInviteCode($invite_code): \OpenAPI\Client\Model\GroupInfoByInviteCode
+getGroupMetadataByInviteCode($invite_code): \Purelines\WhapiSdk\Model\GroupInfoByInviteCode
 ```
 
 Get group info by invite code
@@ -701,15 +703,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -733,7 +735,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupInfoByInviteCode**](../Model/GroupInfoByInviteCode.md)
+[**\Purelines\WhapiSdk\Model\GroupInfoByInviteCode**](../Model/GroupInfoByInviteCode.md)
 
 ### Authorization
 
@@ -751,7 +753,7 @@ try {
 ## `getGroups()`
 
 ```php
-getGroups($count, $offset): \OpenAPI\Client\Model\GroupsList
+getGroups($count, $offset): \Purelines\WhapiSdk\Model\GroupsList
 ```
 
 Get groups
@@ -764,15 +766,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -798,7 +800,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupsList**](../Model/GroupsList.md)
+[**\Purelines\WhapiSdk\Model\GroupsList**](../Model/GroupsList.md)
 
 ### Authorization
 
@@ -816,7 +818,7 @@ try {
 ## `leaveGroup()`
 
 ```php
-leaveGroup($group_id): \OpenAPI\Client\Model\ResponseSuccess
+leaveGroup($group_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Leave group
@@ -831,15 +833,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -863,7 +865,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -881,7 +883,7 @@ try {
 ## `promoteToGroupAdmin()`
 
 ```php
-promoteToGroupAdmin($group_id, $list_participants_request): \OpenAPI\Client\Model\ResponseSuccess
+promoteToGroupAdmin($group_id, $list_participants_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Promote to group admin
@@ -896,22 +898,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \OpenAPI\Client\Model\ListParticipantsRequest | 
+$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \Purelines\WhapiSdk\Model\ListParticipantsRequest | 
 
 try {
     $result = $apiInstance->promoteToGroupAdmin($group_id, $list_participants_request);
@@ -926,11 +928,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **list_participants_request** | [**\OpenAPI\Client\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
+| **list_participants_request** | [**\Purelines\WhapiSdk\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -948,12 +950,12 @@ try {
 ## `rejectGroupApplicationsList()`
 
 ```php
-rejectGroupApplicationsList($group_id, $application_request): \OpenAPI\Client\Model\GroupApplicationChange[]
+rejectGroupApplicationsList($group_id, $application_request): \Purelines\WhapiSdk\Model\GroupApplicationChange[]
 ```
 
 Reject group applications for listed users
 
-This method returns the list with result of operation for each user
+This method rejects a single join request (application) for the specified group. To reject multiple applications, you need to call this method in a loop, passing each application ID separately.
 
 ### Example
 
@@ -963,22 +965,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$application_request = new \OpenAPI\Client\Model\ApplicationRequest(); // \OpenAPI\Client\Model\ApplicationRequest | Chat ID list
+$application_request = new \Purelines\WhapiSdk\Model\ApplicationRequest(); // \Purelines\WhapiSdk\Model\ApplicationRequest | Chat ID list
 
 try {
     $result = $apiInstance->rejectGroupApplicationsList($group_id, $application_request);
@@ -993,11 +995,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **application_request** | [**\OpenAPI\Client\Model\ApplicationRequest**](../Model/ApplicationRequest.md)| Chat ID list | [optional] |
+| **application_request** | [**\Purelines\WhapiSdk\Model\ApplicationRequest**](../Model/ApplicationRequest.md)| Chat ID list | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GroupApplicationChange[]**](../Model/GroupApplicationChange.md)
+[**\Purelines\WhapiSdk\Model\GroupApplicationChange[]**](../Model/GroupApplicationChange.md)
 
 ### Authorization
 
@@ -1015,7 +1017,7 @@ try {
 ## `removeGroupParticipant()`
 
 ```php
-removeGroupParticipant($group_id, $list_participants_request): \OpenAPI\Client\Model\ResponseSuccess
+removeGroupParticipant($group_id, $list_participants_request): \Purelines\WhapiSdk\Model\ResponseListParticipants
 ```
 
 Remove group participant
@@ -1030,22 +1032,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \OpenAPI\Client\Model\ListParticipantsRequest | 
+$list_participants_request = {"participants":["<Recipient WA-ID, from Contacts API>"]}; // \Purelines\WhapiSdk\Model\ListParticipantsRequest | 
 
 try {
     $result = $apiInstance->removeGroupParticipant($group_id, $list_participants_request);
@@ -1060,11 +1062,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **list_participants_request** | [**\OpenAPI\Client\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
+| **list_participants_request** | [**\Purelines\WhapiSdk\Model\ListParticipantsRequest**](../Model/ListParticipantsRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseListParticipants**](../Model/ResponseListParticipants.md)
 
 ### Authorization
 
@@ -1082,7 +1084,7 @@ try {
 ## `revokeGroupInvite()`
 
 ```php
-revokeGroupInvite($group_id): \OpenAPI\Client\Model\ResponseSuccess
+revokeGroupInvite($group_id): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Revoke group invite
@@ -1095,15 +1097,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1127,7 +1129,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1145,7 +1147,7 @@ try {
 ## `sendGroupInvite()`
 
 ```php
-sendGroupInvite($invite_code, $sender_group_invite_by_code): \OpenAPI\Client\Model\SentMessage
+sendGroupInvite($invite_code, $sender_group_invite_by_code): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 Send group invite link
@@ -1158,22 +1160,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $invite_code = 'invite_code_example'; // string | Invite Code
-$sender_group_invite_by_code = new \OpenAPI\Client\Model\SenderGroupInviteByCode(); // \OpenAPI\Client\Model\SenderGroupInviteByCode | Message group invite
+$sender_group_invite_by_code = new \Purelines\WhapiSdk\Model\SenderGroupInviteByCode(); // \Purelines\WhapiSdk\Model\SenderGroupInviteByCode | Message group invite
 
 try {
     $result = $apiInstance->sendGroupInvite($invite_code, $sender_group_invite_by_code);
@@ -1188,11 +1190,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invite_code** | **string**| Invite Code | |
-| **sender_group_invite_by_code** | [**\OpenAPI\Client\Model\SenderGroupInviteByCode**](../Model/SenderGroupInviteByCode.md)| Message group invite | |
+| **sender_group_invite_by_code** | [**\Purelines\WhapiSdk\Model\SenderGroupInviteByCode**](../Model/SenderGroupInviteByCode.md)| Message group invite | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SentMessage**](../Model/SentMessage.md)
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
 
 ### Authorization
 
@@ -1210,12 +1212,12 @@ try {
 ## `setGroupIcon()`
 
 ```php
-setGroupIcon($group_id, $body): \OpenAPI\Client\Model\ResponseSuccess
+setGroupIcon($group_id, $body): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Set group icon
 
-This method is reponsibible for changing a group image that already exists
+This method is responsible for changing a group image that already exists
 
 ### Example
 
@@ -1225,22 +1227,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$body = "/path/to/file.txt"; // \SplFileObject
+$body = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $result = $apiInstance->setGroupIcon($group_id, $body);
@@ -1259,7 +1261,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1277,7 +1279,7 @@ try {
 ## `updateGroupInfo()`
 
 ```php
-updateGroupInfo($group_id, $update_group_info_request): \OpenAPI\Client\Model\ResponseSuccess
+updateGroupInfo($group_id, $update_group_info_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Update group info
@@ -1292,22 +1294,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$update_group_info_request = {"subject":"<New Group Subject>"}; // \OpenAPI\Client\Model\UpdateGroupInfoRequest | 
+$update_group_info_request = {"subject":"<New Group Subject>"}; // \Purelines\WhapiSdk\Model\UpdateGroupInfoRequest | 
 
 try {
     $result = $apiInstance->updateGroupInfo($group_id, $update_group_info_request);
@@ -1322,11 +1324,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **update_group_info_request** | [**\OpenAPI\Client\Model\UpdateGroupInfoRequest**](../Model/UpdateGroupInfoRequest.md)|  | |
+| **update_group_info_request** | [**\Purelines\WhapiSdk\Model\UpdateGroupInfoRequest**](../Model/UpdateGroupInfoRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -1344,7 +1346,7 @@ try {
 ## `updateGroupSetting()`
 
 ```php
-updateGroupSetting($group_id, $update_group_setting_request): \OpenAPI\Client\Model\ResponseSuccess
+updateGroupSetting($group_id, $update_group_setting_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Update group setting
@@ -1359,22 +1361,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+$apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
-$update_group_setting_request = {"subject":"<New Group Subject>"}; // \OpenAPI\Client\Model\UpdateGroupSettingRequest | 
+$update_group_setting_request = {"subject":"<New Group Subject>"}; // \Purelines\WhapiSdk\Model\UpdateGroupSettingRequest | 
 
 try {
     $result = $apiInstance->updateGroupSetting($group_id, $update_group_setting_request);
@@ -1389,11 +1391,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
-| **update_group_setting_request** | [**\OpenAPI\Client\Model\UpdateGroupSettingRequest**](../Model/UpdateGroupSettingRequest.md)|  | |
+| **update_group_setting_request** | [**\Purelines\WhapiSdk\Model\UpdateGroupSettingRequest**](../Model/UpdateGroupSettingRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 

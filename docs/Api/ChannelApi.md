@@ -1,4 +1,6 @@
-# OpenAPI\Client\ChannelApi
+# Purelines\WhapiSdk\ChannelApi
+
+The channel is the main entity of the API. It is the entity that represents the user&#39;s WhatsApp session
 
 All URIs are relative to https://gate.whapi.cloud, except if the operation defines another base path.
 
@@ -16,7 +18,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 ## `checkHealth()`
 
 ```php
-checkHealth($wakeup, $platform, $channel_type): \OpenAPI\Client\Model\Health
+checkHealth($wakeup, $platform, $channel_type): \Purelines\WhapiSdk\Model\Health
 ```
 
 Check health & launch channel
@@ -31,15 +33,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -67,7 +69,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Health**](../Model/Health.md)
+[**\Purelines\WhapiSdk\Model\Health**](../Model/Health.md)
 
 ### Authorization
 
@@ -85,7 +87,7 @@ try {
 ## `getAllowedEvents()`
 
 ```php
-getAllowedEvents(): \OpenAPI\Client\Model\Event[]
+getAllowedEvents(): \Purelines\WhapiSdk\Model\Event[]
 ```
 
 Get allowed events
@@ -100,15 +102,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -129,7 +131,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Event[]**](../Model/Event.md)
+[**\Purelines\WhapiSdk\Model\Event[]**](../Model/Event.md)
 
 ### Authorization
 
@@ -147,7 +149,7 @@ This endpoint does not need any parameter.
 ## `getChannelSettings()`
 
 ```php
-getChannelSettings($body): \OpenAPI\Client\Model\Settings
+getChannelSettings($body): \Purelines\WhapiSdk\Model\Settings
 ```
 
 Get channel settings
@@ -160,15 +162,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -192,7 +194,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Settings**](../Model/Settings.md)
+[**\Purelines\WhapiSdk\Model\Settings**](../Model/Settings.md)
 
 ### Authorization
 
@@ -210,7 +212,7 @@ try {
 ## `getLimits()`
 
 ```php
-getLimits(): \OpenAPI\Client\Model\Limits
+getLimits(): \Purelines\WhapiSdk\Model\Limits
 ```
 
 Get limits
@@ -225,15 +227,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -254,7 +256,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Limits**](../Model/Limits.md)
+[**\Purelines\WhapiSdk\Model\Limits**](../Model/Limits.md)
 
 ### Authorization
 
@@ -272,7 +274,7 @@ This endpoint does not need any parameter.
 ## `resetChannelSettings()`
 
 ```php
-resetChannelSettings(): \OpenAPI\Client\Model\ResponseSuccess
+resetChannelSettings(): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Reset channel settings
@@ -285,15 +287,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -314,7 +316,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 
@@ -332,7 +334,7 @@ This endpoint does not need any parameter.
 ## `updateChannelSettings()`
 
 ```php
-updateChannelSettings($settings): \OpenAPI\Client\Model\UpdateSettings
+updateChannelSettings($settings): \Purelines\WhapiSdk\Model\UpdateSettings
 ```
 
 Update channel settings
@@ -347,21 +349,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$settings = {"callback_backoff_delay_ms":3000,"max_callback_backoff_delay_ms":900000,"callback_persist":true,"media":{"auto_download":["image","document","audio"],"init_avatars":true},"webhooks":[{"url":"<Webhook URL, http or https>","events":[{"type":"ack","method":"put"},{"type":"chat","method":"put"}],"mode":"method"}],"on_call_pager":"<WA_ID of valid WhatsApp contact>","pass_through":false,"sent_status":false}; // \OpenAPI\Client\Model\Settings | New settings
+$settings = {"callback_backoff_delay_ms":3000,"max_callback_backoff_delay_ms":900000,"callback_persist":true,"media":{"auto_download":["image","document","audio"],"init_avatars":true},"webhooks":[{"url":"<Webhook URL, http or https>","events":[{"type":"ack","method":"put"},{"type":"chat","method":"put"}],"mode":"method"}],"on_call_pager":"<WA_ID of valid WhatsApp contact>","pass_through":false,"sent_status":false,"proxy":"socks5://login:password@167.160.89.124:10030"}; // \Purelines\WhapiSdk\Model\Settings | New settings
 
 try {
     $result = $apiInstance->updateChannelSettings($settings);
@@ -375,11 +377,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **settings** | [**\OpenAPI\Client\Model\Settings**](../Model/Settings.md)| New settings | [optional] |
+| **settings** | [**\Purelines\WhapiSdk\Model\Settings**](../Model/Settings.md)| New settings | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\UpdateSettings**](../Model/UpdateSettings.md)
+[**\Purelines\WhapiSdk\Model\UpdateSettings**](../Model/UpdateSettings.md)
 
 ### Authorization
 
@@ -397,12 +399,12 @@ try {
 ## `webhookTest()`
 
 ```php
-webhookTest($webhook_test_request): \OpenAPI\Client\Model\ResponseSuccess
+webhookTest($webhook_test_request): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Test webhook
 
-For testing webhook.
+Sends a test webhook callback to the specified URL.
 
 ### Example
 
@@ -412,21 +414,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
 
 // Configure Bearer (token) authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ChannelApi(
+$apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_test_request = new \OpenAPI\Client\Model\WebhookTestRequest(); // \OpenAPI\Client\Model\WebhookTestRequest | Options for webhook test
+$webhook_test_request = new \Purelines\WhapiSdk\Model\WebhookTestRequest(); // \Purelines\WhapiSdk\Model\WebhookTestRequest | Options for webhook test
 
 try {
     $result = $apiInstance->webhookTest($webhook_test_request);
@@ -440,11 +442,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **webhook_test_request** | [**\OpenAPI\Client\Model\WebhookTestRequest**](../Model/WebhookTestRequest.md)| Options for webhook test | [optional] |
+| **webhook_test_request** | [**\Purelines\WhapiSdk\Model\WebhookTestRequest**](../Model/WebhookTestRequest.md)| Options for webhook test | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
 
 ### Authorization
 

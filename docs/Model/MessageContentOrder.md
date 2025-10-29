@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **text** | **string** | Order message text | [optional]
 **token** | **string** | Base64 secret token | [optional]
 **item_count** | **float** | Total products count | [optional]
-**currency** | [**\OpenAPI\Client\Model\Currency**](Currency.md) |  | [optional]
+**currency** | [**\Purelines\WhapiSdk\Model\Currency**](Currency.md) |  | [optional]
 **total_price** | **float** | Total order price | [optional]
 **status** | **string** | Order status | [optional]
 **preview** | **string** | Order preview base64 image JPEG | [optional]

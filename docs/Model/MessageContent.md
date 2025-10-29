@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | [**\OpenAPI\Client\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  |
-**buttons** | [**\OpenAPI\Client\Model\Button[]**](Button.md) |  | [optional]
-**sections** | [**\OpenAPI\Client\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
+**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  |
+**buttons** | [**\Purelines\WhapiSdk\Model\Button[]**](Button.md) |  | [optional]
+**sections** | [**\Purelines\WhapiSdk\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
 **button** | **string** | Button text for list of message | [optional]
 **view_once** | **bool** | Is view once | [optional]
 **id** | **string** | Media ID |
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **file_size** | **int** | File size in bytes |
 **file_name** | **string** | Optional. File name | [optional]
 **sha256** | **string** | Checksum | [optional]
-**timestamp** | **float** | Created at | [optional]
+**timestamp** | **float** | Created at |
 **caption** | **string** | Optional. Text caption under the live location | [optional]
 **preview** | **string** | Optional. Base64 encoded preview of the media. In JPEG format. | [optional]
 **width** | **int** | Width of the media in pixels | [optional]
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **seconds** | **int** | Optional. For audio files, this field indicates the duration of the audio file in seconds. | [optional]
 **autoplay** | **bool** | Optional. If the media is a GIF, this field indicates whether the GIF should be played automatically when the message is received. | [optional]
 **recording_time** | **float** | Time in seconds to simulate recording voice | [optional] [default to 0]
-**filename** | **string** | Optional. File name | [optional]
+**waveform** | **string** | Voice message waveform | [optional]
 **page_count** | **int** | Optional. Number of pages | [optional]
 **url** | **string** | URL for the website where the user downloaded the location information | [optional]
 **catalog_id** | **string** | Catalog ID | [optional]
@@ -47,16 +47,16 @@ Name | Type | Description | Notes
 **sequence_number** | **int** | Optional. Sequence number of the live location for event tracking | [optional]
 **time_offset** | **float** | Optional. Time offset of the live location | [optional]
 **vcard** | **string** | Vcard of contact | [optional]
-**list** | [**\OpenAPI\Client\Model\VCard[]**](VCard.md) |  | [optional]
-**header** | [**\OpenAPI\Client\Model\MessagePropsInteractiveHeader**](MessagePropsInteractiveHeader.md) |  | [optional]
-**footer** | [**\OpenAPI\Client\Model\MessagePropsInteractiveFooter**](MessagePropsInteractiveFooter.md) |  | [optional]
-**action** | [**\OpenAPI\Client\Model\InteractiveAction**](InteractiveAction.md) |  |
-**type** | [**\OpenAPI\Client\Model\InteractiveType**](InteractiveType.md) |  | [optional]
+**list** | [**\Purelines\WhapiSdk\Model\VCard[]**](VCard.md) |  | [optional]
+**header** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveHeader**](MessagePropsInteractiveHeader.md) |  | [optional]
+**footer** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveFooter**](MessagePropsInteractiveFooter.md) |  | [optional]
+**action** | [**\Purelines\WhapiSdk\Model\InteractiveAction**](InteractiveAction.md) |  |
+**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  | [optional]
 **options** | **string[]** | Options of poll |
 **vote_limit** | **int** | Number of selectable options in poll (1 - can choose only one option, 0 - any number of options) | [optional]
 **total** | **int** | Total count of selected options | [optional]
-**results** | [**\OpenAPI\Client\Model\PollResults[]**](PollResults.md) |  | [optional]
-**list_reply** | [**\OpenAPI\Client\Model\ListReply**](ListReply.md) |  | [optional]
-**buttons_reply** | [**\OpenAPI\Client\Model\ButtonsReply**](ButtonsReply.md) |  | [optional]
+**results** | [**\Purelines\WhapiSdk\Model\PollResults[]**](PollResults.md) |  | [optional]
+**list_reply** | [**\Purelines\WhapiSdk\Model\ListReply**](ListReply.md) |  | [optional]
+**buttons_reply** | [**\Purelines\WhapiSdk\Model\ButtonsReply**](ButtonsReply.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
