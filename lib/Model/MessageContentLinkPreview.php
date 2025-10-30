@@ -366,8 +366,8 @@ class MessageContentLinkPreview implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
-        if (!is_null($this->container['id']) && !preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", $this->container['id'])) {
-            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.";
+        if (!is_null($this->container['id']) && !preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", $this->container['id'])) {
+            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.";
         }
 
         if (!is_null($this->container['catalog_id']) && !preg_match("/^([\\d]{7,15})?$/", $this->container['catalog_id'])) {
@@ -599,7 +599,7 @@ class MessageContentLinkPreview implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets id
      *
-     * @param string|null $id Media ID
+     * @param string|null $id Media ID (or media_init placeholder)
      *
      * @return self
      */
@@ -609,8 +609,8 @@ class MessageContentLinkPreview implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
 
-        if ((!preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", ObjectSerializer::toString($id)))) {
-            throw new \InvalidArgumentException("invalid value for \$id when calling MessageContentLinkPreview., must conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.");
+        if ((!preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", ObjectSerializer::toString($id)))) {
+            throw new \InvalidArgumentException("invalid value for \$id when calling MessageContentLinkPreview., must conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.");
         }
 
         $this->container['id'] = $id;

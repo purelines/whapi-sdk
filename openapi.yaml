@@ -9023,8 +9023,8 @@ components:
       pattern: ^([\d]{1,2})?$
     MediaID:
       type: string
-      description: Media ID
-      pattern: ^[a-zA-Z0-9]+-[0-9a-fA-F-]+$
+      description: Media ID (or media_init placeholder)
+      pattern: ^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$
     MediaMessageType:
       type: string
       description: Media message type

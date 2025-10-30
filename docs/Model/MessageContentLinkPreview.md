@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **preview** | **string** | Base64 encoded image for mini version link preview. In JPEG format | [optional]
 **view_once** | **bool** | Is view once | [optional]
 **url** | **string** | URL of the link | [optional]
-**id** | **string** | Media ID | [optional]
+**id** | **string** | Media ID (or media_init placeholder) | [optional]
 **link** | **string** | Optional. Link to media | [optional]
 **sha256** | **string** | Checksum | [optional]
 **catalog_id** | **string** | Contact ID | [optional]

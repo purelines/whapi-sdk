@@ -356,8 +356,8 @@ class MessageContentSticker implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if (!preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", $this->container['id'])) {
-            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.";
+        if (!preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", $this->container['id'])) {
+            $invalidProperties[] = "invalid value for 'id', must be conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.";
         }
 
         if ($this->container['mime_type'] === null) {
@@ -397,7 +397,7 @@ class MessageContentSticker implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param string $id Media ID
+     * @param string $id Media ID (or media_init placeholder)
      *
      * @return self
      */
@@ -407,8 +407,8 @@ class MessageContentSticker implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
 
-        if ((!preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", ObjectSerializer::toString($id)))) {
-            throw new \InvalidArgumentException("invalid value for \$id when calling MessageContentSticker., must conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.");
+        if ((!preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", ObjectSerializer::toString($id)))) {
+            throw new \InvalidArgumentException("invalid value for \$id when calling MessageContentSticker., must conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.");
         }
 
         $this->container['id'] = $id;

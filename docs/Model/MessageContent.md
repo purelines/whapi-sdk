@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **sections** | [**\Purelines\WhapiSdk\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
 **button** | **string** | Button text for list of message | [optional]
 **view_once** | **bool** | Is view once | [optional]
-**id** | **string** | Media ID |
+**id** | **string** | Media ID (or media_init placeholder) |
 **link** | **string** | Optional. Link to media | [optional]
 **mime_type** | **string** | Mime type of media |
 **file_size** | **int** | File size in bytes |

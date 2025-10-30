@@ -386,8 +386,8 @@ class MediaApi
                 'Missing the required parameter $media_id when calling deleteMedia',
             );
         }
-        if (!preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", $media_id)) {
-            throw new \InvalidArgumentException("invalid value for \"media_id\" when calling MediaApi.deleteMedia, must conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.");
+        if (!preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", $media_id)) {
+            throw new \InvalidArgumentException("invalid value for \"media_id\" when calling MediaApi.deleteMedia, must conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.");
         }
 
 
@@ -708,8 +708,8 @@ class MediaApi
                 'Missing the required parameter $media_id when calling getMedia',
             );
         }
-        if (!preg_match("/^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/", $media_id)) {
-            throw new \InvalidArgumentException("invalid value for \"media_id\" when calling MediaApi.getMedia, must conform to the pattern /^[a-zA-Z0-9]+-[0-9a-fA-F-]+$/.");
+        if (!preg_match("/^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/", $media_id)) {
+            throw new \InvalidArgumentException("invalid value for \"media_id\" when calling MediaApi.getMedia, must conform to the pattern /^(?:media_init|[A-Za-z0-9]+-[0-9A-Fa-f-]+)$/.");
         }
 
 

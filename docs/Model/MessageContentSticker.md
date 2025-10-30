@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Media ID |
+**id** | **string** | Media ID (or media_init placeholder) |
 **link** | **string** | Optional. Link to media | [optional]
 **mime_type** | **string** | Mime type of media |
 **file_size** | **int** | File size in bytes |
