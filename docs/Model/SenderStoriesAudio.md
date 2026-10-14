@@ -1,4 +1,4 @@
-# # SenderStoriesAudio
+# SenderStoriesAudio
 
 ## Properties
 
@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **height** | **int** | Height of the media in pixels | [optional]
 **contacts** | **string[]** | List of contacts to send the story to | [optional]
 **exclude_contacts** | **string[]** | List of contacts to exclude | [optional]
+**allow_reshare** | **bool** | Allow viewers to reshare the story | [optional] [default to true]
 **background_color** | **string** | Background color of the story (ARGB) | [optional] [default to '#00000000']
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

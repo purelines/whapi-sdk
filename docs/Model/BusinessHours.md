@@ -1,4 +1,4 @@
-# # BusinessHours
+# BusinessHours
 
 ## Properties
 

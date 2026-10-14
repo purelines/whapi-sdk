@@ -1,4 +1,4 @@
-# # CreateGroupCallLinkResponse
+# CreateGroupCallLinkResponse
 
 ## Properties
 

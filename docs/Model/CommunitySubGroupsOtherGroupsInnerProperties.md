@@ -1,4 +1,4 @@
-# # CommunitySubGroupsOtherGroupsInnerProperties
+# CommunitySubGroupsOtherGroupsInnerProperties
 
 ## Properties
 

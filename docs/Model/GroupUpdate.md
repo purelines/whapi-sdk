@@ -1,4 +1,4 @@
-# # GroupUpdate
+# GroupUpdate
 
 ## Properties
 

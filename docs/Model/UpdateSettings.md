@@ -1,4 +1,4 @@
-# # UpdateSettings
+# UpdateSettings
 
 ## Properties
 

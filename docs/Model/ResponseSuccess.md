@@ -1,4 +1,4 @@
-# # ResponseSuccess
+# ResponseSuccess
 
 ## Properties
 

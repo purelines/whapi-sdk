@@ -1,4 +1,4 @@
-# # UpdateGroupInfoRequest
+# UpdateGroupInfoRequest
 
 ## Properties
 

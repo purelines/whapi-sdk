@@ -1,4 +1,4 @@
-# # SenderNewsletterInviteByCode
+# SenderNewsletterInviteByCode
 
 ## Properties
 

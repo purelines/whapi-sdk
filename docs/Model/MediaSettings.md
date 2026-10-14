@@ -1,4 +1,4 @@
-# # MediaSettings
+# MediaSettings
 
 ## Properties
 

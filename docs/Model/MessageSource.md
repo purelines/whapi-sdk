@@ -1,4 +1,4 @@
-# # MessageSource
+# MessageSource
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ContactsList
+# ContactsList
 
 ## Properties
 

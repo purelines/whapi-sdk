@@ -1,4 +1,4 @@
-# # PatchChatRequest
+# PatchChatRequest
 
 ## Properties
 

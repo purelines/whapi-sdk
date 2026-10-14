@@ -1,4 +1,4 @@
-# # MessageContentList
+# MessageContentList
 
 ## Properties
 

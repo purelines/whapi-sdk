@@ -1,4 +1,4 @@
-# # ListReply
+# ListReply
 
 ## Properties
 

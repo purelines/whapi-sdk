@@ -1,4 +1,4 @@
-# # MessageReaction
+# MessageReaction
 
 ## Properties
 

@@ -24,6 +24,8 @@ copyStory($message_id, $copy_stories): \Purelines\WhapiSdk\Model\ResponseSuccess
 
 Copy story
 
+Republishes the specified story to the connected account's WhatsApp Status, optionally choosing who can view it.
+
 ### Example
 
 ```php
@@ -214,7 +216,7 @@ try {
 ## `createStoryMedia()`
 
 ```php
-createStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts): \Purelines\WhapiSdk\Model\SentMessage
+createStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts, $allow_reshare): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🖼 Post media story
@@ -253,9 +255,10 @@ $width = 56; // int | Width of the media in pixels
 $height = 56; // int | Height of the media in pixels
 $contacts = array('contacts_example'); // string[] | List of contacts to send the story to
 $exclude_contacts = array('exclude_contacts_example'); // string[] | List of contacts to exclude
+$allow_reshare = true; // bool | Allow viewers to reshare the story
 
 try {
-    $result = $apiInstance->createStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts);
+    $result = $apiInstance->createStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts, $allow_reshare);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StoriesApi->createStoryMedia: ', $e->getMessage(), PHP_EOL;
@@ -276,6 +279,7 @@ try {
 | **height** | **int**| Height of the media in pixels | [optional] |
 | **contacts** | [**string[]**](../Model/string.md)| List of contacts to send the story to | [optional] |
 | **exclude_contacts** | [**string[]**](../Model/string.md)| List of contacts to exclude | [optional] |
+| **allow_reshare** | **bool**| Allow viewers to reshare the story | [optional] [default to true] |
 
 ### Return type
 
@@ -366,6 +370,8 @@ getStories($count, $offset, $time_from, $time_to, $normal_types, $author, $from_
 ```
 
 Get list of stories
+
+Returns a list of WhatsApp Status updates (stories) available to the connected account.
 
 ### Example
 

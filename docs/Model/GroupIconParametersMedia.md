@@ -1,4 +1,4 @@
-# # GroupIconParametersMedia
+# GroupIconParametersMedia
 
 ## Properties
 

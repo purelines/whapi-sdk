@@ -1,4 +1,4 @@
-# # MediaMessageType
+# MediaMessageType
 
 ## Properties
 

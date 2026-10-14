@@ -1,4 +1,4 @@
-# # ProductEdit
+# ProductEdit
 
 ## Properties
 

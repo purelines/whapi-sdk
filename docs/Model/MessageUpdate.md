@@ -1,4 +1,4 @@
-# # MessageUpdate
+# MessageUpdate
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ChatsList
+# ChatsList
 
 ## Properties
 

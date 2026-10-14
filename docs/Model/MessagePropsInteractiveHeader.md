@@ -1,4 +1,4 @@
-# # MessagePropsInteractiveHeader
+# MessagePropsInteractiveHeader
 
 ## Properties
 

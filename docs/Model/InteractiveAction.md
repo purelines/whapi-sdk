@@ -1,4 +1,4 @@
-# # InteractiveAction
+# InteractiveAction
 
 ## Properties
 

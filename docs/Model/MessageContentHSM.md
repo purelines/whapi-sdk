@@ -1,4 +1,4 @@
-# # MessageContentHSM
+# MessageContentHSM
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # NewslettersListPaged
+# NewslettersListPaged
 
 ## Properties
 

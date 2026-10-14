@@ -1,4 +1,4 @@
-# # BusinessProfile
+# BusinessProfile
 
 ## Properties
 

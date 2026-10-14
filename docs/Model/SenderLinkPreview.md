@@ -1,4 +1,4 @@
-# # SenderLinkPreview
+# SenderLinkPreview
 
 ## Properties
 

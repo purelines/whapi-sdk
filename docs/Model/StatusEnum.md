@@ -1,4 +1,4 @@
-# # StatusEnum
+# StatusEnum
 
 ## Properties
 

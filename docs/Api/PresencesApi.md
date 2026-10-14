@@ -20,6 +20,8 @@ getPresence($entry_id): \Purelines\WhapiSdk\Model\Presence
 
 Get presence
 
+Returns the latest known presence status and last-seen time for a contact or group previously subscribed to presence updates.
+
 ### Example
 
 ```php
@@ -83,6 +85,8 @@ sendMePresence($send_me_presence_request): \Purelines\WhapiSdk\Model\CheckContac
 
 Send online or offline presence
 
+Sets the connected WhatsApp account's presence to online or offline.
+
 ### Example
 
 ```php
@@ -145,6 +149,8 @@ sendPresence($entry_id, $send_presence_request): \Purelines\WhapiSdk\Model\Check
 ```
 
 Send typing or recording presence
+
+Shows or clears the typing or voice-recording indicator in a contact or group chat, optionally clearing it after a specified delay.
 
 ### Example
 
@@ -210,6 +216,8 @@ subscribePresence($entry_id): \Purelines\WhapiSdk\Model\CheckContactResponse
 ```
 
 Subscribe to presence
+
+Starts tracking presence updates for a contact or group so its latest status and last-seen time can be retrieved.
 
 ### Example
 

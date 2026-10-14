@@ -1,4 +1,4 @@
-# # ResponseListParticipants
+# ResponseListParticipants
 
 ## Properties
 

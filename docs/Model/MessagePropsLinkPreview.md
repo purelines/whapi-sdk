@@ -1,4 +1,4 @@
-# # MessagePropsLinkPreview
+# MessagePropsLinkPreview
 
 ## Properties
 

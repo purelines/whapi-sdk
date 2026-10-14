@@ -1,4 +1,4 @@
-# # NewslettersList
+# NewslettersList
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MessageContentProduct
+# MessageContentProduct
 
 ## Properties
 

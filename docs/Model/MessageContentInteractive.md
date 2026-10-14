@@ -1,14 +1,14 @@
-# # MessageContentInteractive
+# MessageContentInteractive
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **header** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveHeader**](MessagePropsInteractiveHeader.md) |  | [optional]
-**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  | [optional]
+**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  |
 **footer** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveFooter**](MessagePropsInteractiveFooter.md) |  | [optional]
 **action** | [**\Purelines\WhapiSdk\Model\InteractiveAction**](InteractiveAction.md) |  |
-**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  | [optional]
+**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  |
 **id** | **string** | Media ID (or media_init placeholder) |
 **link** | **string** | Optional. Link to media | [optional]
 **mime_type** | **string** | Mime type of media |

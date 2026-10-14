@@ -1,4 +1,4 @@
-# # SenderContactFromPhonebook
+# SenderContactFromPhonebook
 
 ## Properties
 

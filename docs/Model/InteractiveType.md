@@ -1,4 +1,4 @@
-# # InteractiveType
+# InteractiveType
 
 ## Properties
 

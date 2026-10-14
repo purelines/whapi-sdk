@@ -1,4 +1,4 @@
-# # GroupApplicationList
+# GroupApplicationList
 
 ## Properties
 

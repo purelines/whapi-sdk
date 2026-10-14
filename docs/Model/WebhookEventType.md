@@ -1,4 +1,4 @@
-# # WebhookEventType
+# WebhookEventType
 
 ## Properties
 

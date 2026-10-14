@@ -1,4 +1,4 @@
-# # CreateCommunityRequest
+# CreateCommunityRequest
 
 ## Properties
 

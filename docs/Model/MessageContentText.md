@@ -1,4 +1,4 @@
-# # MessageContentText
+# MessageContentText
 
 ## Properties
 

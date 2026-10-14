@@ -1,4 +1,4 @@
-# # CommunitySubGroups
+# CommunitySubGroups
 
 ## Properties
 

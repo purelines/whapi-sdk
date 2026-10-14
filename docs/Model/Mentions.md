@@ -1,4 +1,4 @@
-# # Mentions
+# Mentions
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EditContactRequest
+# EditContactRequest
 
 ## Properties
 

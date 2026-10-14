@@ -1,4 +1,4 @@
-# # CreateCallEventRequest
+# CreateCallEventRequest
 
 ## Properties
 

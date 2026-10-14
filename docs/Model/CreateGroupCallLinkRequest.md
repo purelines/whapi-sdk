@@ -1,4 +1,4 @@
-# # CreateGroupCallLinkRequest
+# CreateGroupCallLinkRequest
 
 ## Properties
 

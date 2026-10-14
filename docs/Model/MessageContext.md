@@ -1,4 +1,4 @@
-# # MessageContext
+# MessageContext
 
 ## Properties
 
@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **mentions** | **string[]** | The numbers of the mentioned users | [optional]
 **ad** | [**\Purelines\WhapiSdk\Model\MessageContextAD**](MessageContextAD.md) |  | [optional]
 **conversion** | [**\Purelines\WhapiSdk\Model\MessageContextConversion**](MessageContextConversion.md) |  | [optional]
+**paid_partnership** | **bool** | True if a WhatsApp Channel message is labelled as a paid partnership | [optional]
 **quoted_id** | **string** | ID of quoted message | [optional]
 **quoted_type** | [**\Purelines\WhapiSdk\Model\MessageType**](MessageType.md) |  | [optional]
 **quoted_content** | [**\Purelines\WhapiSdk\Model\MessageContent**](MessageContent.md) |  | [optional]

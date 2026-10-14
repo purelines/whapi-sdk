@@ -1,4 +1,4 @@
-# # ActionListSectionsInnerRowsInner
+# ActionListSectionsInnerRowsInner
 
 ## Properties
 

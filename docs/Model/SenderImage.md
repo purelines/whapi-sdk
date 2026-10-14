@@ -1,4 +1,4 @@
-# # SenderImage
+# SenderImage
 
 ## Properties
 

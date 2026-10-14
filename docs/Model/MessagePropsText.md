@@ -1,4 +1,4 @@
-# # MessagePropsText
+# MessagePropsText
 
 ## Properties
 

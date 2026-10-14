@@ -1,4 +1,4 @@
-# # MessageContentButtonsButtonsInner
+# MessageContentButtonsButtonsInner
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ReactToMessage
+# ReactToMessage
 
 ## Properties
 

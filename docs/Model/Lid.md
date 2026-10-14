@@ -1,4 +1,4 @@
-# # Lid
+# Lid
 
 ## Properties
 

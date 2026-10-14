@@ -1,4 +1,4 @@
-# # MessageContentListSectionsInner
+# MessageContentListSectionsInner
 
 ## Properties
 

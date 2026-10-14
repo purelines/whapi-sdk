@@ -1,4 +1,4 @@
-# # SenderGroupInviteByCode
+# SenderGroupInviteByCode
 
 ## Properties
 

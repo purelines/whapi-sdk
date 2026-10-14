@@ -1,4 +1,4 @@
-# # MessageContentContacts
+# MessageContentContacts
 
 ## Properties
 

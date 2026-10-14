@@ -1,4 +1,4 @@
-# # SenderMedia
+# SenderMedia
 
 ## Properties
 

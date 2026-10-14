@@ -426,7 +426,7 @@ try {
 ## `getGroup()`
 
 ```php
-getGroup($group_id): \Purelines\WhapiSdk\Model\Group
+getGroup($group_id, $resync): \Purelines\WhapiSdk\Model\Group
 ```
 
 Get group
@@ -456,9 +456,10 @@ $apiInstance = new Purelines\WhapiSdk\Api\GroupsApi(
     $config
 );
 $group_id = 'group_id_example'; // string | Group ID
+$resync = false; // bool | If set to true, the channel will resync its data.
 
 try {
-    $result = $apiInstance->getGroup($group_id);
+    $result = $apiInstance->getGroup($group_id, $resync);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->getGroup: ', $e->getMessage(), PHP_EOL;
@@ -470,6 +471,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **group_id** | **string**| Group ID | |
+| **resync** | **bool**| If set to true, the channel will resync its data. | [optional] [default to false] |
 
 ### Return type
 
@@ -694,6 +696,8 @@ getGroupMetadataByInviteCode($invite_code): \Purelines\WhapiSdk\Model\GroupInfoB
 ```
 
 Get group info by invite code
+
+Returns information about the WhatsApp group associated with the invitation code without joining the group.
 
 ### Example
 
@@ -1151,6 +1155,8 @@ sendGroupInvite($invite_code, $sender_group_invite_by_code): \Purelines\WhapiSdk
 ```
 
 Send group invite link
+
+Sends the group invitation link identified by `InviteCode` to the recipient specified in `to`. It does not join the connected account to the group.
 
 ### Example
 

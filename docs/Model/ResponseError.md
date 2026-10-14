@@ -1,4 +1,4 @@
-# # ResponseError
+# ResponseError
 
 ## Properties
 

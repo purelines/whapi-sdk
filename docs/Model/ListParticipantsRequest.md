@@ -1,4 +1,4 @@
-# # ListParticipantsRequest
+# ListParticipantsRequest
 
 ## Properties
 

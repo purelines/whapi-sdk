@@ -1,4 +1,4 @@
-# # OrderItems
+# OrderItems
 
 ## Properties
 

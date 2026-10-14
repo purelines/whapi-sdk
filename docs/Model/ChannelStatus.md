@@ -1,4 +1,4 @@
-# # ChannelStatus
+# ChannelStatus
 
 ## Properties
 

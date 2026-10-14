@@ -1,4 +1,4 @@
-# # MessagePropsDocument
+# MessagePropsDocument
 
 ## Properties
 

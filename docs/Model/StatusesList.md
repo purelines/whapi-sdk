@@ -1,4 +1,4 @@
-# # StatusesList
+# StatusesList
 
 ## Properties
 

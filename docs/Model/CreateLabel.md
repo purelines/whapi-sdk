@@ -1,4 +1,4 @@
-# # CreateLabel
+# CreateLabel
 
 ## Properties
 

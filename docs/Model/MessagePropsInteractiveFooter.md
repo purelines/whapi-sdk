@@ -1,4 +1,4 @@
-# # MessagePropsInteractiveFooter
+# MessagePropsInteractiveFooter
 
 ## Properties
 

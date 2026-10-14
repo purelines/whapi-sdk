@@ -1,4 +1,4 @@
-# # MediaFile
+# MediaFile
 
 ## Properties
 

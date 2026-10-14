@@ -1,4 +1,4 @@
-# # SenderContact
+# SenderContact
 
 ## Properties
 

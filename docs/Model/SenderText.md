@@ -1,4 +1,4 @@
-# # SenderText
+# SenderText
 
 ## Properties
 

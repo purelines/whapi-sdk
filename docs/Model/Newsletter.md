@@ -1,10 +1,11 @@
-# # Newsletter
+# Newsletter
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Chat ID |
+**phone** | **string** | Phone number | [optional]
 **name** | **string** | Newsletter name |
 **type** | **string** | Chat type |
 **timestamp** | **int** | Chat timestamp | [optional]

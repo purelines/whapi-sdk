@@ -1,4 +1,4 @@
-# # Paging
+# Paging
 
 ## Properties
 

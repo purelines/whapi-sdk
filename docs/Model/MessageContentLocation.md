@@ -1,4 +1,4 @@
-# # MessageContentLocation
+# MessageContentLocation
 
 ## Properties
 
