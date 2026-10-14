@@ -1,4 +1,4 @@
-# # MessageContentAudio
+# MessageContentAudio
 
 ## Properties
 

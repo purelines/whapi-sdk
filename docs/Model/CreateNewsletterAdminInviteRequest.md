@@ -1,4 +1,4 @@
-# # CreateNewsletterAdminInviteRequest
+# CreateNewsletterAdminInviteRequest
 
 ## Properties
 

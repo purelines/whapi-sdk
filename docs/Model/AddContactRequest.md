@@ -1,4 +1,4 @@
-# # AddContactRequest
+# AddContactRequest
 
 ## Properties
 

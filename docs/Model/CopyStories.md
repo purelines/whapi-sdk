@@ -1,4 +1,4 @@
-# # CopyStories
+# CopyStories
 
 ## Properties
 

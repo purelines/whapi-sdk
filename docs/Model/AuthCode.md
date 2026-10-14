@@ -1,4 +1,4 @@
-# # AuthCode
+# AuthCode
 
 ## Properties
 

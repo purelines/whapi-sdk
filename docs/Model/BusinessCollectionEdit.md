@@ -1,4 +1,4 @@
-# # BusinessCollectionEdit
+# BusinessCollectionEdit
 
 ## Properties
 

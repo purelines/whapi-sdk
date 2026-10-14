@@ -1,4 +1,4 @@
-# # MessageContentEvent
+# MessageContentEvent
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MessagePropsVoice
+# MessagePropsVoice
 
 ## Properties
 

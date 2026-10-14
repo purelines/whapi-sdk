@@ -1,4 +1,4 @@
-# # PollResults
+# PollResults
 
 ## Properties
 

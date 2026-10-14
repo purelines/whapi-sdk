@@ -1,4 +1,4 @@
-# # EditNewsletterRequest
+# EditNewsletterRequest
 
 ## Properties
 

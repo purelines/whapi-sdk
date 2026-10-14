@@ -1,4 +1,4 @@
-# # LabelAssociations
+# LabelAssociations
 
 ## Properties
 

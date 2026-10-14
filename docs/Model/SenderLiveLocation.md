@@ -1,4 +1,4 @@
-# # SenderLiveLocation
+# SenderLiveLocation
 
 ## Properties
 

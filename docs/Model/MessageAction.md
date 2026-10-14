@@ -1,4 +1,4 @@
-# # MessageAction
+# MessageAction
 
 ## Properties
 
@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **edited_type** | [**\Purelines\WhapiSdk\Model\MessageType**](MessageType.md) |  | [optional]
 **edited_content** | [**\Purelines\WhapiSdk\Model\MessageContent**](MessageContent.md) |  | [optional]
 **votes** | **string[]** | List of poll options | [optional]
+**result** | [**\Purelines\WhapiSdk\Model\QuizResult**](QuizResult.md) |  | [optional]
 **comment** | **string** | Comment | [optional]
 **event_response** | [**\Purelines\WhapiSdk\Model\EventResponse**](EventResponse.md) |  | [optional]
+**answer** | [**\Purelines\WhapiSdk\Model\QuestionAnswer**](QuestionAnswer.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

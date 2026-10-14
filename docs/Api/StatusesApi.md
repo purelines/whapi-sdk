@@ -17,6 +17,8 @@ getMessageViewStatuses($message_id): \Purelines\WhapiSdk\Model\StatusesList
 
 Get message or story view statuses
 
+Returns delivery, read, and view records for the specified outgoing group messages or story
+
 ### Example
 
 ```php

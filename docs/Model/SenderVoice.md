@@ -1,4 +1,4 @@
-# # SenderVoice
+# SenderVoice
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SenderDocument
+# SenderDocument
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ViewOnce
+# ViewOnce
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # CreateEventRequest
+# CreateEventRequest
 
 ## Properties
 

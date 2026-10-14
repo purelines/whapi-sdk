@@ -1,4 +1,4 @@
-# # SenderGif
+# SenderGif
 
 ## Properties
 

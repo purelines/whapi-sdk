@@ -1,4 +1,4 @@
-# # MessagePropsGif
+# MessagePropsGif
 
 ## Properties
 

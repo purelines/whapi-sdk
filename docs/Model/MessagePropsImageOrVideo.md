@@ -1,4 +1,4 @@
-# # MessagePropsImageOrVideo
+# MessagePropsImageOrVideo
 
 ## Properties
 

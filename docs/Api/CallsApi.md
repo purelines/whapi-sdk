@@ -8,6 +8,8 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | ------------- | ------------- | ------------- |
 | [**createCallEvent()**](CallsApi.md#createCallEvent) | **POST** /calls | Create call event |
 | [**createGroupCallLink()**](CallsApi.md#createGroupCallLink) | **POST** /calls/group_link | Create group video call link |
+| [**getCall()**](CallsApi.md#getCall) | **GET** /calls/{CallID} | Get call information |
+| [**makeCall()**](CallsApi.md#makeCall) | **POST** /calls/outgoing | Make an attention call |
 | [**rejectCall()**](CallsApi.md#rejectCall) | **DELETE** /calls/{CallID} | Reject call |
 | [**rejectCallDeprecated()**](CallsApi.md#rejectCallDeprecated) | **POST** /calls/{CallID}/reject | Reject call |
 
@@ -128,6 +130,136 @@ try {
 ### Return type
 
 [**\Purelines\WhapiSdk\Model\CreateGroupCallLinkResponse**](../Model/CreateGroupCallLinkResponse.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCall()`
+
+```php
+getCall($call_id): \Purelines\WhapiSdk\Model\CallInfo
+```
+
+Get call information
+
+The method returns call information currently available on the connected channel. It does not request call history directly from WhatsApp servers.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\CallsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$call_id = 'call_id_example'; // string | Call ID
+
+try {
+    $result = $apiInstance->getCall($call_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallsApi->getCall: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **call_id** | **string**| Call ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\CallInfo**](../Model/CallInfo.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `makeCall()`
+
+```php
+makeCall($make_call_request): \Purelines\WhapiSdk\Model\MakeCallResponse
+```
+
+Make an attention call
+
+Places a brief WhatsApp call intended to attract the recipient's attention. Enable `outgoing_calls_enabled` in the channel settings before using this endpoint. The call is automatically terminated after the configured `duration` (0–30 seconds, default 5). A successful response confirms only that WhatsApp acknowledged the call offer; it does not confirm ringing or answer. This endpoint does not establish a VoIP media stream.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\CallsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$make_call_request = new \Purelines\WhapiSdk\Model\MakeCallRequest(); // \Purelines\WhapiSdk\Model\MakeCallRequest | Outgoing call data
+
+try {
+    $result = $apiInstance->makeCall($make_call_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallsApi->makeCall: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **make_call_request** | [**\Purelines\WhapiSdk\Model\MakeCallRequest**](../Model/MakeCallRequest.md)| Outgoing call data | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\MakeCallResponse**](../Model/MakeCallResponse.md)
 
 ### Authorization
 

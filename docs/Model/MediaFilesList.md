@@ -1,4 +1,4 @@
-# # MediaFilesList
+# MediaFilesList
 
 ## Properties
 

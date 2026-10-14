@@ -1,4 +1,4 @@
-# # MessageMediaFileParametersForMediaUploadMedia
+# MessageMediaFileParametersForMediaUploadMedia
 
 ## Properties
 

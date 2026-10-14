@@ -1,4 +1,4 @@
-# # ActionButtons
+# ActionButtons
 
 ## Properties
 

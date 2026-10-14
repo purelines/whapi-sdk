@@ -1,4 +1,4 @@
-# # Iterator
+# Iterator
 
 ## Properties
 

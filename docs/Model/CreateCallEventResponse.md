@@ -1,4 +1,4 @@
-# # CreateCallEventResponse
+# CreateCallEventResponse
 
 ## Properties
 

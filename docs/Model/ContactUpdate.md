@@ -1,4 +1,4 @@
-# # ContactUpdate
+# ContactUpdate
 
 ## Properties
 

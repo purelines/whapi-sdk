@@ -12,8 +12,10 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**deleteContact()**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{ContactID} | Delete contact |
 | [**editContact()**](ContactsApi.md#editContact) | **PATCH** /contacts/{ContactID} | Edit contact |
 | [**getContact()**](ContactsApi.md#getContact) | **GET** /contacts/{ContactID} | Get contact |
+| [**getContactAbout()**](ContactsApi.md#getContactAbout) | **GET** /contacts/{ContactID}/about | Get contact about |
 | [**getContactProfile()**](ContactsApi.md#getContactProfile) | **GET** /contacts/{ContactID}/profile | Get profile |
 | [**getContacts()**](ContactsApi.md#getContacts) | **GET** /contacts | Get contacts |
+| [**getIdByLid()**](ContactsApi.md#getIdByLid) | **GET** /contacts/ids/{ContactLID} | Get ID by LID |
 | [**getLidById()**](ContactsApi.md#getLidById) | **GET** /contacts/lids/{ContactID} | Get LID by ID |
 | [**getLidByIds()**](ContactsApi.md#getLidByIds) | **GET** /contacts/lids | Get LIDs by IDs |
 | [**sendContact()**](ContactsApi.md#sendContact) | **POST** /contacts/{ContactID} | Send contact |
@@ -157,7 +159,7 @@ checkPhones($check_contact_request): \Purelines\WhapiSdk\Model\CheckContactRespo
 
 Check phones
 
-This method returns whether or not the number has Whatsapp. Batch check provisioning is supported, and there is no batch check limit. However, an atypical mass check can draw attention to your number, so we advise [balancing the check between channels](https://support.whapi.cloud/help-desk/faq/checking-if-the-number-has-whatsapp)
+This method returns whether or not the number has Whatsapp. Batch check provisioning is supported. For bulk checks, explore [available number-checking options](https://support.whapi.cloud/help-desk/faq/checking-if-the-number-has-whatsapp), including the API, no-code interface, and our managed checking service.
 
 ### Example
 
@@ -411,6 +413,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getContactAbout()`
+
+```php
+getContactAbout($contact_id): \Purelines\WhapiSdk\Model\ContactAbout
+```
+
+Get contact about
+
+Retrieves the text displayed in the About section of a WhatsApp contact's profile using the contact's phone number or Contact ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$contact_id = 'contact_id_example'; // string | Contact ID
+
+try {
+    $result = $apiInstance->getContactAbout($contact_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getContactAbout: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_id** | **string**| Contact ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ContactAbout**](../Model/ContactAbout.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getContactProfile()`
 
 ```php
@@ -529,6 +596,71 @@ try {
 ### Return type
 
 [**\Purelines\WhapiSdk\Model\ContactsList**](../Model/ContactsList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getIdByLid()`
+
+```php
+getIdByLid($contact_lid): \Purelines\WhapiSdk\Model\ContactIDResponse
+```
+
+Get ID by LID
+
+Retrieve ID for a single user
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$contact_lid = 'contact_lid_example'; // string | Contact LID
+
+try {
+    $result = $apiInstance->getIdByLid($contact_lid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getIdByLid: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_lid** | **string**| Contact LID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ContactIDResponse**](../Model/ContactIDResponse.md)
 
 ### Authorization
 

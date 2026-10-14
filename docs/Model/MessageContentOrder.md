@@ -1,4 +1,4 @@
-# # MessageContentOrder
+# MessageContentOrder
 
 ## Properties
 

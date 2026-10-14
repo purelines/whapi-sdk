@@ -6,15 +6,15 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**blacklistAdd()**](BlacklistApi.md#blacklistAdd) | **PUT** /blacklist/{ContactID} | Add contact to blacklist |
-| [**blacklistRemove()**](BlacklistApi.md#blacklistRemove) | **DELETE** /blacklist/{ContactID} | Remove contact from blacklist |
+| [**blacklistAdd()**](BlacklistApi.md#blacklistAdd) | **PUT** /blacklist/{ContactIdOrLid} | Add contact to blacklist |
+| [**blacklistRemove()**](BlacklistApi.md#blacklistRemove) | **DELETE** /blacklist/{ContactIdOrLid} | Remove contact from blacklist |
 | [**getBlackList()**](BlacklistApi.md#getBlackList) | **GET** /blacklist | Get blacklist |
 
 
 ## `blacklistAdd()`
 
 ```php
-blacklistAdd($contact_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+blacklistAdd($contact_id_or_lid): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Add contact to blacklist
@@ -43,10 +43,10 @@ $apiInstance = new Purelines\WhapiSdk\Api\BlacklistApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_id = 'contact_id_example'; // string | Contact ID
+$contact_id_or_lid = 'contact_id_or_lid_example'; // string | Contact ID or LID
 
 try {
-    $result = $apiInstance->blacklistAdd($contact_id);
+    $result = $apiInstance->blacklistAdd($contact_id_or_lid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->blacklistAdd: ', $e->getMessage(), PHP_EOL;
@@ -57,7 +57,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_id** | **string**| Contact ID | |
+| **contact_id_or_lid** | **string**| Contact ID or LID | |
 
 ### Return type
 
@@ -79,7 +79,7 @@ try {
 ## `blacklistRemove()`
 
 ```php
-blacklistRemove($contact_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+blacklistRemove($contact_id_or_lid): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 Remove contact from blacklist
@@ -108,10 +108,10 @@ $apiInstance = new Purelines\WhapiSdk\Api\BlacklistApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_id = 'contact_id_example'; // string | Contact ID
+$contact_id_or_lid = 'contact_id_or_lid_example'; // string | Contact ID or LID
 
 try {
-    $result = $apiInstance->blacklistRemove($contact_id);
+    $result = $apiInstance->blacklistRemove($contact_id_or_lid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->blacklistRemove: ', $e->getMessage(), PHP_EOL;
@@ -122,7 +122,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_id** | **string**| Contact ID | |
+| **contact_id_or_lid** | **string**| Contact ID or LID | |
 
 ### Return type
 

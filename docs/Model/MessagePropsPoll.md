@@ -1,4 +1,4 @@
-# # MessagePropsPoll
+# MessagePropsPoll
 
 ## Properties
 

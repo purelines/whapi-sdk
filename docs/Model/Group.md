@@ -1,10 +1,11 @@
-# # Group
+# Group
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Chat ID |
+**phone** | **string** | Phone number | [optional]
 **name** | **string** | Group name |
 **type** | **string** | Chat type |
 **timestamp** | **int** | Chat timestamp | [optional]
@@ -37,6 +38,7 @@ Name | Type | Description | Notes
 **announcements** | **bool** | If only admins can send messages | [optional]
 **admin_add_member_mode** | **bool** | If only admins can add members | [optional]
 **ephemeral** | **float** | Group ephemeral timer | [optional]
+**performed_by** | **string** | Chat ID | [optional]
 **invite_code** | **string** | Group invite code | [optional]
 **is_community_announce** | **bool** | If group is community announce | [optional]
 **linked_parent** | **string** | Chat ID | [optional]

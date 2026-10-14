@@ -1,4 +1,4 @@
-# # CarouselCard
+# CarouselCard
 
 ## Properties
 

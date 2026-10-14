@@ -1,4 +1,4 @@
-# # SenderCarousel
+# SenderCarousel
 
 ## Properties
 

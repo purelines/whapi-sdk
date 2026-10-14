@@ -18,9 +18,11 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**getCollectionsList()**](BusinessApi.md#getCollectionsList) | **GET** /business/collections | Get collections |
 | [**getCollectionsProductsList()**](BusinessApi.md#getCollectionsProductsList) | **GET** /business/collections/products | Get collections products |
 | [**getContactProducts()**](BusinessApi.md#getContactProducts) | **GET** /business/{ContactID}/products | Get products by Contact ID |
+| [**getNewChatLimit()**](BusinessApi.md#getNewChatLimit) | **GET** /business/limits/new_chat | Get new chat limit |
 | [**getOrderItems()**](BusinessApi.md#getOrderItems) | **GET** /business/orders/{OrderID} | Get order items |
 | [**getProduct()**](BusinessApi.md#getProduct) | **GET** /business/products/{ProductID} | Get product |
 | [**getProducts()**](BusinessApi.md#getProducts) | **GET** /business/products | Get products |
+| [**getReachoutTimelock()**](BusinessApi.md#getReachoutTimelock) | **GET** /business/limits/reachout_timelock | Get reachout timelock status |
 | [**sendCatalog()**](BusinessApi.md#sendCatalog) | **POST** /business/catalogs/{ContactID} | Send catalog by Contact ID (phone number) |
 | [**sendProduct()**](BusinessApi.md#sendProduct) | **POST** /business/products/{ProductID} | Send product |
 | [**updateProduct()**](BusinessApi.md#updateProduct) | **PATCH** /business/products/{ProductID} | Update product |
@@ -817,6 +819,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getNewChatLimit()`
+
+```php
+getNewChatLimit(): \Purelines\WhapiSdk\Model\NewChatLimit
+```
+
+Get new chat limit
+
+Returns the current account limit for starting new individual chats.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getNewChatLimit();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessApi->getNewChatLimit: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\NewChatLimit**](../Model/NewChatLimit.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getOrderItems()`
 
 ```php
@@ -1016,6 +1080,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getReachoutTimelock()`
+
+```php
+getReachoutTimelock(): \Purelines\WhapiSdk\Model\ReachoutTimelock
+```
+
+Get reachout timelock status
+
+Returns whether the current account is temporarily limited from starting chats.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\BusinessApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getReachoutTimelock();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessApi->getReachoutTimelock: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ReachoutTimelock**](../Model/ReachoutTimelock.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `sendCatalog()`
 
 ```php
@@ -1023,6 +1149,8 @@ sendCatalog($contact_id, $sender_catalog_by_id): \Purelines\WhapiSdk\Model\SentM
 ```
 
 Send catalog by Contact ID (phone number)
+
+Sends a link and preview for the catalog of the business identified by `ContactID` to the recipient specified in `to`.
 
 ### Example
 

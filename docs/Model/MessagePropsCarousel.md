@@ -1,4 +1,4 @@
-# # MessagePropsCarousel
+# MessagePropsCarousel
 
 ## Properties
 

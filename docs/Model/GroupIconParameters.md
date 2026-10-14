@@ -1,4 +1,4 @@
-# # GroupIconParameters
+# GroupIconParameters
 
 ## Properties
 

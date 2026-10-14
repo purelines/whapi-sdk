@@ -1,4 +1,4 @@
-# # MessagePropsAudio
+# MessagePropsAudio
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # HSMButton
+# HSMButton
 
 ## Properties
 

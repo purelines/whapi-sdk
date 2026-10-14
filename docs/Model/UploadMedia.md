@@ -1,4 +1,4 @@
-# # UploadMedia
+# UploadMedia
 
 ## Properties
 

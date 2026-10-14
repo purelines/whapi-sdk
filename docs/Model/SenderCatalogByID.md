@@ -1,4 +1,4 @@
-# # SenderCatalogByID
+# SenderCatalogByID
 
 ## Properties
 

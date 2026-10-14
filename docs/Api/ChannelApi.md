@@ -363,7 +363,7 @@ $apiInstance = new Purelines\WhapiSdk\Api\ChannelApi(
     new GuzzleHttp\Client(),
     $config
 );
-$settings = {"callback_backoff_delay_ms":3000,"max_callback_backoff_delay_ms":900000,"callback_persist":true,"media":{"auto_download":["image","document","audio"],"init_avatars":true},"webhooks":[{"url":"<Webhook URL, http or https>","events":[{"type":"ack","method":"put"},{"type":"chat","method":"put"}],"mode":"method"}],"on_call_pager":"<WA_ID of valid WhatsApp contact>","pass_through":false,"sent_status":false,"proxy":"socks5://login:password@167.160.89.124:10030"}; // \Purelines\WhapiSdk\Model\Settings | New settings
+$settings = {"callback_backoff_delay_ms":3000,"max_callback_backoff_delay_ms":900000,"callback_persist":true,"media":{"auto_download":["image","document","audio"],"init_avatars":true},"webhooks":[{"url":"<Webhook URL, http or https>","events":[{"type":"ack","method":"put"},{"type":"chat","method":"put"}],"mode":"method"}],"on_call_pager":"<WA_ID of valid WhatsApp contact>","pass_through":false,"sent_status":false,"auto_read_messages":false,"outgoing_calls_enabled":false,"locale":"pt-BR","proxy":"socks5://login:password@167.160.89.124:10030"}; // \Purelines\WhapiSdk\Model\Settings | New settings
 
 try {
     $result = $apiInstance->updateChannelSettings($settings);

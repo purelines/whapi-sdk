@@ -1,4 +1,4 @@
-# # Message
+# Message
 
 ## Properties
 
@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **chat_id** | **string** | Chat ID |
 **chat_name** | **string** | Chat name | [optional]
 **from** | **string** | WhatsApp ID of the sender | [optional]
+**phone** | **string** | Phone number of the sender | [optional]
 **from_me** | **bool** | Is message from me |
 **from_name** | **string** | Pushname of the sender | [optional]
 **source** | [**\Purelines\WhapiSdk\Model\MessageSource**](MessageSource.md) |  | [optional]
@@ -32,6 +33,8 @@ Name | Type | Description | Notes
 **contact_list** | [**\Purelines\WhapiSdk\Model\MessageContentContacts**](MessageContentContacts.md) |  | [optional]
 **interactive** | [**\Purelines\WhapiSdk\Model\MessageContentInteractive**](MessageContentInteractive.md) |  | [optional]
 **poll** | [**\Purelines\WhapiSdk\Model\MessageContentPoll**](MessageContentPoll.md) |  | [optional]
+**quiz** | [**\Purelines\WhapiSdk\Model\MessageContentQuiz**](MessageContentQuiz.md) |  | [optional]
+**question** | [**\Purelines\WhapiSdk\Model\MessageContentQuestion**](MessageContentQuestion.md) |  | [optional]
 **hsm** | [**\Purelines\WhapiSdk\Model\MessageContentHSM**](MessageContentHSM.md) |  | [optional]
 **system** | [**\Purelines\WhapiSdk\Model\MessageContentSystem**](MessageContentSystem.md) |  | [optional]
 **order** | [**\Purelines\WhapiSdk\Model\MessageContentOrder**](MessageContentOrder.md) |  | [optional]
@@ -46,6 +49,7 @@ Name | Type | Description | Notes
 **event** | [**\Purelines\WhapiSdk\Model\MessageContentEvent**](MessageContentEvent.md) |  | [optional]
 **list** | [**\Purelines\WhapiSdk\Model\MessageContentList**](MessageContentList.md) |  | [optional]
 **buttons** | [**\Purelines\WhapiSdk\Model\MessageContentButtons**](MessageContentButtons.md) |  | [optional]
+**starred** | **bool** | Is message starred | [optional]
 **reactions** | [**\Purelines\WhapiSdk\Model\MessageReaction[]**](MessageReaction.md) | Reactions for message | [optional]
 **labels** | [**\Purelines\WhapiSdk\Model\Label[]**](Label.md) | Labels associated with message | [optional]
 

@@ -1,4 +1,4 @@
-# # MessageContentLinkPreview
+# MessageContentLinkPreview
 
 ## Properties
 

@@ -1,10 +1,10 @@
-# # MessageContent
+# MessageContent
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  |
+**body** | **string** | Question text |
 **buttons** | [**\Purelines\WhapiSdk\Model\Button[]**](Button.md) |  | [optional]
 **sections** | [**\Purelines\WhapiSdk\Model\ActionListSectionsInner[]**](ActionListSectionsInner.md) | Section of the message | [optional]
 **button** | **string** | Button text for list of message | [optional]
@@ -51,11 +51,16 @@ Name | Type | Description | Notes
 **header** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveHeader**](MessagePropsInteractiveHeader.md) |  | [optional]
 **footer** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveFooter**](MessagePropsInteractiveFooter.md) |  | [optional]
 **action** | [**\Purelines\WhapiSdk\Model\InteractiveAction**](InteractiveAction.md) |  |
-**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  | [optional]
+**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  |
 **options** | **string[]** | Options of poll |
 **vote_limit** | **int** | Number of selectable options in poll (1 - can choose only one option, 0 - any number of options) | [optional]
-**total** | **int** | Total count of selected options | [optional]
+**end_time** | **int** | Poll end timestamp | [optional]
+**hide_participant_name** | **bool** | Hide participant names in poll results | [optional]
+**allow_add_option** | **bool** | Allow participants to add options | [optional]
+**total** | **int** | Total count of responses | [optional]
 **results** | [**\Purelines\WhapiSdk\Model\PollResults[]**](PollResults.md) |  | [optional]
+**correct_answer** | **string** | Correct option for quiz | [optional]
+**responses** | [**\Purelines\WhapiSdk\Model\QuestionAnswer[]**](QuestionAnswer.md) | Question responses | [optional]
 **list_reply** | [**\Purelines\WhapiSdk\Model\ListReply**](ListReply.md) |  | [optional]
 **buttons_reply** | [**\Purelines\WhapiSdk\Model\ButtonsReply**](ButtonsReply.md) |  | [optional]
 

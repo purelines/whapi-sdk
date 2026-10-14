@@ -1,4 +1,4 @@
-# # ProductItem
+# ProductItem
 
 ## Properties
 

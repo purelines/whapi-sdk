@@ -1,4 +1,4 @@
-# # GroupInvite
+# GroupInvite
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SentMessage
+# SentMessage
 
 ## Properties
 

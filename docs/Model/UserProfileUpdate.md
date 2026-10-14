@@ -1,10 +1,10 @@
-# # UserProfileUpdate
+# UserProfileUpdate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Update user name. | [optional]
+**name** | **string** | Update user name. Not works on WhatsApp Business. | [optional]
 **about** | **string** | Update user info in About section. | [optional]
 **icon** | **string** | Update user icon in base64/url. | [optional]
 

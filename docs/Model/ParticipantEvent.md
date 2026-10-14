@@ -1,4 +1,4 @@
-# # ParticipantEvent
+# ParticipantEvent
 
 ## Properties
 

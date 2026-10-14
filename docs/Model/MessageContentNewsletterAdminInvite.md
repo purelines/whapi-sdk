@@ -1,4 +1,4 @@
-# # MessageContentNewsletterAdminInvite
+# MessageContentNewsletterAdminInvite
 
 ## Properties
 

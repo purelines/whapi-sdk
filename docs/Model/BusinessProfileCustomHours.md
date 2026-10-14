@@ -1,4 +1,4 @@
-# # BusinessProfileCustomHours
+# BusinessProfileCustomHours
 
 ## Properties
 

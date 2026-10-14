@@ -1,4 +1,4 @@
-# # ChangeCommunitySettingsRequest
+# ChangeCommunitySettingsRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MessageContentHSMHeader
+# MessageContentHSMHeader
 
 ## Properties
 

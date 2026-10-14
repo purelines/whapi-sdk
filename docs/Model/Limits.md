@@ -1,4 +1,4 @@
-# # Limits
+# Limits
 
 ## Properties
 

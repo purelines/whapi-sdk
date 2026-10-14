@@ -1,4 +1,4 @@
-# # Participants
+# Participants
 
 ## Properties
 

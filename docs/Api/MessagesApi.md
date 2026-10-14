@@ -6,15 +6,18 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**commentMessage()**](MessagesApi.md#commentMessage) | **POST** /messages/{MessageID}/comment | Comment on community announcement |
 | [**deleteMessage()**](MessagesApi.md#deleteMessage) | **DELETE** /messages/{MessageID} | ❌ Delete message |
 | [**forwardMessage()**](MessagesApi.md#forwardMessage) | **POST** /messages/{MessageID} | ↪ Forward message |
 | [**getMessage()**](MessagesApi.md#getMessage) | **GET** /messages/{MessageID} | Get message |
 | [**getMessages()**](MessagesApi.md#getMessages) | **GET** /messages/list | Get messages |
 | [**getMessagesByChatID()**](MessagesApi.md#getMessagesByChatID) | **GET** /messages/list/{ChatID} | Get messages by chat ID |
+| [**markMessageAsPlayed()**](MessagesApi.md#markMessageAsPlayed) | **PUT** /messages/{MessageID}/played | Mark voice message as played |
 | [**markMessageAsRead()**](MessagesApi.md#markMessageAsRead) | **PUT** /messages/{MessageID} | ✔✔ Mark message as read |
 | [**pinMessage()**](MessagesApi.md#pinMessage) | **POST** /messages/{MessageID}/pin | 📌 Pin message |
 | [**reactToMessage()**](MessagesApi.md#reactToMessage) | **PUT** /messages/{MessageID}/reaction | 😍 React to message |
 | [**removeReactFromMessage()**](MessagesApi.md#removeReactFromMessage) | **DELETE** /messages/{MessageID}/reaction | Remove react from message |
+| [**sendEvent()**](MessagesApi.md#sendEvent) | **POST** /messages/event | Send event |
 | [**sendMediaMessage()**](MessagesApi.md#sendMediaMessage) | **POST** /messages/media/{MediaMessageType} | 📎 Send media message |
 | [**sendMessageAudio()**](MessagesApi.md#sendMessageAudio) | **POST** /messages/audio | 🎵 Send media-audio message |
 | [**sendMessageCarousel()**](MessagesApi.md#sendMessageCarousel) | **POST** /messages/carousel | 🖼️ Send carousel message |
@@ -28,6 +31,8 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**sendMessageLiveLocation()**](MessagesApi.md#sendMessageLiveLocation) | **POST** /messages/live_location | 🧭 Send live location message |
 | [**sendMessageLocation()**](MessagesApi.md#sendMessageLocation) | **POST** /messages/location | 📍 Send location message |
 | [**sendMessagePoll()**](MessagesApi.md#sendMessagePoll) | **POST** /messages/poll | 📊 Send poll message |
+| [**sendMessageQuestion()**](MessagesApi.md#sendMessageQuestion) | **POST** /messages/question | Send question message |
+| [**sendMessageQuiz()**](MessagesApi.md#sendMessageQuiz) | **POST** /messages/quiz | Send quiz message |
 | [**sendMessageShort()**](MessagesApi.md#sendMessageShort) | **POST** /messages/short | 📹 Send media-short video message (PTV) |
 | [**sendMessageSticker()**](MessagesApi.md#sendMessageSticker) | **POST** /messages/sticker | 🎭 Send media-sticker message |
 | [**sendMessageStory()**](MessagesApi.md#sendMessageStory) | **POST** /messages/story | 👁️‍🗨️ Send story message |
@@ -40,6 +45,73 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | [**starMessage()**](MessagesApi.md#starMessage) | **PUT** /messages/{MessageID}/star | ⭐ Star message |
 | [**unpinMessage()**](MessagesApi.md#unpinMessage) | **DELETE** /messages/{MessageID}/pin | Unpin message |
 
+
+## `commentMessage()`
+
+```php
+commentMessage($message_id, $comment_to_message): \Purelines\WhapiSdk\Model\SentMessage
+```
+
+Comment on community announcement
+
+Send a text comment to a community announcement message.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$message_id = 'message_id_example'; // string | Message ID
+$comment_to_message = new \Purelines\WhapiSdk\Model\CommentToMessage(); // \Purelines\WhapiSdk\Model\CommentToMessage | Comment on a community announcement message
+
+try {
+    $result = $apiInstance->commentMessage($message_id, $comment_to_message);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->commentMessage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **message_id** | **string**| Message ID | |
+| **comment_to_message** | [**\Purelines\WhapiSdk\Model\CommentToMessage**](../Model/CommentToMessage.md)| Comment on a community announcement message | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `deleteMessage()`
 
@@ -400,6 +472,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `markMessageAsPlayed()`
+
+```php
+markMessageAsPlayed($message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Mark voice message as played
+
+Marks the specified voice message as played by sending a WhatsApp played receipt. It does not play the audio.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$message_id = 'message_id_example'; // string | Message ID
+
+try {
+    $result = $apiInstance->markMessageAsPlayed($message_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->markMessageAsPlayed: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **message_id** | **string**| Message ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `markMessageAsRead()`
 
 ```php
@@ -494,7 +631,7 @@ $apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
     $config
 );
 $message_id = 'message_id_example'; // string | Message ID
-$pin = new \Purelines\WhapiSdk\Model\Pin(); // \Purelines\WhapiSdk\Model\Pin | Star message
+$pin = new \Purelines\WhapiSdk\Model\Pin(); // \Purelines\WhapiSdk\Model\Pin | Parameters for pinning the message, including the pin duration.
 
 try {
     $result = $apiInstance->pinMessage($message_id, $pin);
@@ -509,7 +646,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **message_id** | **string**| Message ID | |
-| **pin** | [**\Purelines\WhapiSdk\Model\Pin**](../Model/Pin.md)| Star message | |
+| **pin** | [**\Purelines\WhapiSdk\Model\Pin**](../Model/Pin.md)| Parameters for pinning the message, including the pin duration. | |
 
 ### Return type
 
@@ -654,6 +791,71 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendEvent()`
+
+```php
+sendEvent($create_event_request): \Purelines\WhapiSdk\Model\SentMessage
+```
+
+Send event
+
+Send a structured WhatsApp invitation for a scheduled activity. Participants can view the event details and respond directly in the chat. Commonly used in Communities and group chats.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_event_request = new \Purelines\WhapiSdk\Model\CreateEventRequest(); // \Purelines\WhapiSdk\Model\CreateEventRequest | Event body
+
+try {
+    $result = $apiInstance->sendEvent($create_event_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->sendEvent: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_event_request** | [**\Purelines\WhapiSdk\Model\CreateEventRequest**](../Model/CreateEventRequest.md)| Event body | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1507,6 +1709,136 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `sendMessageQuestion()`
+
+```php
+sendMessageQuestion($sender_question): \Purelines\WhapiSdk\Model\SentMessage
+```
+
+Send question message
+
+Send a question message to a WhatsApp Channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sender_question = new \Purelines\WhapiSdk\Model\SenderQuestion(); // \Purelines\WhapiSdk\Model\SenderQuestion | Message question
+
+try {
+    $result = $apiInstance->sendMessageQuestion($sender_question);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->sendMessageQuestion: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_question** | [**\Purelines\WhapiSdk\Model\SenderQuestion**](../Model/SenderQuestion.md)| Message question | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendMessageQuiz()`
+
+```php
+sendMessageQuiz($sender_quiz): \Purelines\WhapiSdk\Model\SentMessage
+```
+
+Send quiz message
+
+Send a quiz message to a WhatsApp Channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\MessagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$sender_quiz = new \Purelines\WhapiSdk\Model\SenderQuiz(); // \Purelines\WhapiSdk\Model\SenderQuiz | Message quiz
+
+try {
+    $result = $apiInstance->sendMessageQuiz($sender_quiz);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessagesApi->sendMessageQuiz: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sender_quiz** | [**\Purelines\WhapiSdk\Model\SenderQuiz**](../Model/SenderQuiz.md)| Message quiz | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\SentMessage**](../Model/SentMessage.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `sendMessageShort()`
 
 ```php
@@ -1770,7 +2102,7 @@ try {
 ## `sendMessageStoryMedia()`
 
 ```php
-sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts): \Purelines\WhapiSdk\Model\SentMessage
+sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts, $allow_reshare): \Purelines\WhapiSdk\Model\SentMessage
 ```
 
 🖼 Send story media message
@@ -1809,9 +2141,10 @@ $width = 56; // int | Width of the media in pixels
 $height = 56; // int | Height of the media in pixels
 $contacts = array('contacts_example'); // string[] | List of contacts to send the story to
 $exclude_contacts = array('exclude_contacts_example'); // string[] | List of contacts to exclude
+$allow_reshare = true; // bool | Allow viewers to reshare the story
 
 try {
-    $result = $apiInstance->sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts);
+    $result = $apiInstance->sendMessageStoryMedia($media, $mime_type, $no_encode, $no_cache, $caption, $preview, $width, $height, $contacts, $exclude_contacts, $allow_reshare);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->sendMessageStoryMedia: ', $e->getMessage(), PHP_EOL;
@@ -1832,6 +2165,7 @@ try {
 | **height** | **int**| Height of the media in pixels | [optional] |
 | **contacts** | [**string[]**](../Model/string.md)| List of contacts to send the story to | [optional] |
 | **exclude_contacts** | [**string[]**](../Model/string.md)| List of contacts to exclude | [optional] |
+| **allow_reshare** | **bool**| Allow viewers to reshare the story | [optional] [default to true] |
 
 ### Return type
 
@@ -2117,6 +2451,8 @@ starMessage($message_id, $star): \Purelines\WhapiSdk\Model\ResponseSuccess
 ```
 
 ⭐ Star message
+
+Adds or removes the star from the specified message based on the `starred` value.
 
 ### Example
 

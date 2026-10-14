@@ -1,4 +1,4 @@
-# # UploadMediaResponse
+# UploadMediaResponse
 
 ## Properties
 

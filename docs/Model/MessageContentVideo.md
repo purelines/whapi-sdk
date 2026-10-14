@@ -1,4 +1,4 @@
-# # MessageContentVideo
+# MessageContentVideo
 
 ## Properties
 

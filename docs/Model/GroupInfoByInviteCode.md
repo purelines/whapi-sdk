@@ -1,4 +1,4 @@
-# # GroupInfoByInviteCode
+# GroupInfoByInviteCode
 
 ## Properties
 

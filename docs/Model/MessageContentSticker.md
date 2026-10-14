@@ -1,4 +1,4 @@
-# # MessageContentSticker
+# MessageContentSticker
 
 ## Properties
 

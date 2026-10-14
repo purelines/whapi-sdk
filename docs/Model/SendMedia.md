@@ -1,4 +1,4 @@
-# # SendMedia
+# SendMedia
 
 ## Properties
 

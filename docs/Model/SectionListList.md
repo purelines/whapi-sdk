@@ -1,4 +1,4 @@
-# # SectionListList
+# SectionListList
 
 ## Properties
 

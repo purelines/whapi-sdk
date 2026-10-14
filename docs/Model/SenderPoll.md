@@ -1,4 +1,4 @@
-# # SenderPoll
+# SenderPoll
 
 ## Properties
 

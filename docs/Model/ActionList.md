@@ -1,4 +1,4 @@
-# # ActionList
+# ActionList
 
 ## Properties
 

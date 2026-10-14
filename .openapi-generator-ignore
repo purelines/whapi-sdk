@@ -5,6 +5,7 @@
 # The patterns follow closely to .gitignore or .dockerignore.
 
 /test/
+/tests/
 .gitignore
 .php-cs-fixer.dist.php
 .travis.yml

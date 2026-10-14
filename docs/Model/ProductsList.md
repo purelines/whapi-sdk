@@ -1,4 +1,4 @@
-# # ProductsList
+# ProductsList
 
 ## Properties
 

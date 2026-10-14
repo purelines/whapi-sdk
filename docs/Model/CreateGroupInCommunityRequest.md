@@ -1,4 +1,4 @@
-# # CreateGroupInCommunityRequest
+# CreateGroupInCommunityRequest
 
 ## Properties
 

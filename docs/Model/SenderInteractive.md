@@ -1,4 +1,4 @@
-# # SenderInteractive
+# SenderInteractive
 
 ## Properties
 
@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **quoted** | **string** | Message ID of the message to be quoted | [optional]
 **edit** | **string** | Message ID of the message to be edited | [optional]
 **header** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveHeader**](MessagePropsInteractiveHeader.md) |  | [optional]
-**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  | [optional]
+**body** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveBody**](MessagePropsInteractiveBody.md) |  |
 **footer** | [**\Purelines\WhapiSdk\Model\MessagePropsInteractiveFooter**](MessagePropsInteractiveFooter.md) |  | [optional]
 **action** | [**\Purelines\WhapiSdk\Model\InteractiveAction**](InteractiveAction.md) |  |
-**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  | [optional]
+**type** | [**\Purelines\WhapiSdk\Model\InteractiveType**](InteractiveType.md) |  |
 **media** | [**\Purelines\WhapiSdk\Model\SendMediaMedia**](SendMediaMedia.md) |  | [optional]
 **mime_type** | **string** | Mime type of media | [optional]
 **no_encode** | **bool** | Do not use our encoding | [optional]

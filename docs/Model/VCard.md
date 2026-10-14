@@ -1,4 +1,4 @@
-# # VCard
+# VCard
 
 ## Properties
 

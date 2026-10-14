@@ -1,4 +1,4 @@
-# # WebhookPayload
+# WebhookPayload
 
 ## Properties
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **calls** | [**\Purelines\WhapiSdk\Model\CallEvent[]**](CallEvent.md) | The calls array contains all calls that were sent to the webhook URL. Sent on event \&quot;calls.post\&quot; | [optional]
 **qr** | [**\Purelines\WhapiSdk\Model\QR**](QR.md) |  | [optional]
 **health** | [**\Purelines\WhapiSdk\Model\Health**](Health.md) |  | [optional]
-**user** | [**\Purelines\WhapiSdk\Model\Contact**](Contact.md) |  | [optional]
+**user** | [**\Purelines\WhapiSdk\Model\WebhookUser**](WebhookUser.md) |  | [optional]
 **errors** | [**\Purelines\WhapiSdk\Model\Error[]**](Error.md) |  | [optional]
 **event** | [**\Purelines\WhapiSdk\Model\Event**](Event.md) |  | [optional]
 **channel_id** | **string** | The channel ID | [optional]

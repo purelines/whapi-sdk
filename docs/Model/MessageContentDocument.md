@@ -1,4 +1,4 @@
-# # MessageContentDocument
+# MessageContentDocument
 
 ## Properties
 

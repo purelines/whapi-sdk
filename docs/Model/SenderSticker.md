@@ -1,4 +1,4 @@
-# # SenderSticker
+# SenderSticker
 
 ## Properties
 

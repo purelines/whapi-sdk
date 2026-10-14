@@ -7,6 +7,7 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**acceptNewsletterAdminRequest()**](NewslettersApi.md#acceptNewsletterAdminRequest) | **PUT** /newsletters/{NewsletterID}/admins/{ContactID} | Accept Newsletter admin-request |
+| [**addNewsletterMessagePaidPartnership()**](NewslettersApi.md#addNewsletterMessagePaidPartnership) | **POST** /newsletters/{NewsletterID}/messages/{MessageID}/paid_partnership | Label newsletter message as paid partnership |
 | [**createNewsletter()**](NewslettersApi.md#createNewsletter) | **POST** /newsletters | Create newsletter |
 | [**createNewsletterAdminInvite()**](NewslettersApi.md#createNewsletterAdminInvite) | **POST** /newsletters/{NewsletterID}/invite/{ContactID} | Create Newsletter admin-invite |
 | [**deleteNewsletter()**](NewslettersApi.md#deleteNewsletter) | **DELETE** /newsletters/{NewsletterID} | Delete newsletter |
@@ -76,6 +77,73 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **newsletter_id** | **string**| Newsletter ID | |
 | **contact_id** | **string**| Contact ID | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addNewsletterMessagePaidPartnership()`
+
+```php
+addNewsletterMessagePaidPartnership($newsletter_id, $message_id): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Label newsletter message as paid partnership
+
+Adds a paid partnership label to a WhatsApp Channel message
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\NewslettersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$newsletter_id = 'newsletter_id_example'; // string | Newsletter ID
+$message_id = 'message_id_example'; // string | Message ID
+
+try {
+    $result = $apiInstance->addNewsletterMessagePaidPartnership($newsletter_id, $message_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling NewslettersApi->addNewsletterMessagePaidPartnership: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **newsletter_id** | **string**| Newsletter ID | |
+| **message_id** | **string**| Message ID | |
 
 ### Return type
 

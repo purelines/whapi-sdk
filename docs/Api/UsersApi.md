@@ -7,12 +7,18 @@ All URIs are relative to https://gate.whapi.cloud, except if the operation defin
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**changeStatus()**](UsersApi.md#changeStatus) | **PUT** /status | Change status text |
+| [**getAccountRegistrationDate()**](UsersApi.md#getAccountRegistrationDate) | **GET** /users/account/registration_date | Get account registration date |
 | [**getUserProfile()**](UsersApi.md#getUserProfile) | **GET** /users/profile | User info |
+| [**getUsername()**](UsersApi.md#getUsername) | **GET** /users/username | Get account username |
 | [**loginUser()**](UsersApi.md#loginUser) | **GET** /users/login | Login user with QR-base64 |
 | [**loginUserImage()**](UsersApi.md#loginUserImage) | **GET** /users/login/image | Login user with QR-image |
+| [**loginUserPasskeyChrome()**](UsersApi.md#loginUserPasskeyChrome) | **POST** /users/login/passkey/chrome | Complete login with Chrome passkey |
+| [**loginUserPasskeyNid()**](UsersApi.md#loginUserPasskeyNid) | **POST** /users/login/passkey/nid | Complete login with automatic NID passkey |
+| [**loginUserPasskeyPaste()**](UsersApi.md#loginUserPasskeyPaste) | **POST** /users/login/passkey/paste | Complete login with pasted passkey response |
 | [**loginUserRowData()**](UsersApi.md#loginUserRowData) | **GET** /users/login/rowdata | Login user with QR-rowdata |
 | [**loginUserViaAuthCode()**](UsersApi.md#loginUserViaAuthCode) | **GET** /users/login/{PhoneNumber} | Get auth code by phone number |
 | [**logoutUser()**](UsersApi.md#logoutUser) | **POST** /users/logout | Logout user |
+| [**setUsername()**](UsersApi.md#setUsername) | **PATCH** /users/username | Set account username |
 | [**updateUserProfile()**](UsersApi.md#updateUserProfile) | **PATCH** /users/profile | Update user info |
 
 
@@ -81,6 +87,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAccountRegistrationDate()`
+
+```php
+getAccountRegistrationDate(): \Purelines\WhapiSdk\Model\AccountRegistrationDate
+```
+
+Get account registration date
+
+Retrieve account creation and last registration timestamps for the current WhatsApp account
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getAccountRegistrationDate();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getAccountRegistrationDate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\AccountRegistrationDate**](../Model/AccountRegistrationDate.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getUserProfile()`
 
 ```php
@@ -129,6 +197,68 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\Purelines\WhapiSdk\Model\UserProfile**](../Model/UserProfile.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUsername()`
+
+```php
+getUsername(): \Purelines\WhapiSdk\Model\UserUsername
+```
+
+Get account username
+
+Retrieve the username associated with the current WhatsApp account
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getUsername();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getUsername: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\UserUsername**](../Model/UserUsername.md)
 
 ### Authorization
 
@@ -288,6 +418,195 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `image/png`, `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loginUserPasskeyChrome()`
+
+```php
+loginUserPasskeyChrome($login_passkey_request): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Complete login with Chrome passkey
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$login_passkey_request = new \Purelines\WhapiSdk\Model\LoginPasskeyRequest(); // \Purelines\WhapiSdk\Model\LoginPasskeyRequest | Request body for Chrome passkey login completion
+
+try {
+    $result = $apiInstance->loginUserPasskeyChrome($login_passkey_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->loginUserPasskeyChrome: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **login_passkey_request** | [**\Purelines\WhapiSdk\Model\LoginPasskeyRequest**](../Model/LoginPasskeyRequest.md)| Request body for Chrome passkey login completion | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loginUserPasskeyNid()`
+
+```php
+loginUserPasskeyNid($login_passkey_request): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Complete login with automatic NID passkey
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$login_passkey_request = new \Purelines\WhapiSdk\Model\LoginPasskeyRequest(); // \Purelines\WhapiSdk\Model\LoginPasskeyRequest | Request body for automatic NID passkey login completion
+
+try {
+    $result = $apiInstance->loginUserPasskeyNid($login_passkey_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->loginUserPasskeyNid: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **login_passkey_request** | [**\Purelines\WhapiSdk\Model\LoginPasskeyRequest**](../Model/LoginPasskeyRequest.md)| Request body for automatic NID passkey login completion | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loginUserPasskeyPaste()`
+
+```php
+loginUserPasskeyPaste($login_passkey_paste_request): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Complete login with pasted passkey response
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$login_passkey_paste_request = new \Purelines\WhapiSdk\Model\LoginPasskeyPasteRequest(); // \Purelines\WhapiSdk\Model\LoginPasskeyPasteRequest | Request body for pasted WebAuthn response login completion
+
+try {
+    $result = $apiInstance->loginUserPasskeyPaste($login_passkey_paste_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->loginUserPasskeyPaste: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **login_passkey_paste_request** | [**\Purelines\WhapiSdk\Model\LoginPasskeyPasteRequest**](../Model/LoginPasskeyPasteRequest.md)| Request body for pasted WebAuthn response login completion | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -475,6 +794,71 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setUsername()`
+
+```php
+setUsername($set_user_username_request): \Purelines\WhapiSdk\Model\ResponseSuccess
+```
+
+Set account username
+
+Set, reserve, or remove the username associated with the current WhatsApp account
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKey('token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('token', 'Bearer');
+
+// Configure Bearer (token) authorization: bearerAuth
+$config = Purelines\WhapiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Purelines\WhapiSdk\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$set_user_username_request = new \Purelines\WhapiSdk\Model\SetUserUsernameRequest(); // \Purelines\WhapiSdk\Model\SetUserUsernameRequest | Username settings for the current WhatsApp account
+
+try {
+    $result = $apiInstance->setUsername($set_user_username_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->setUsername: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **set_user_username_request** | [**\Purelines\WhapiSdk\Model\SetUserUsernameRequest**](../Model/SetUserUsernameRequest.md)| Username settings for the current WhatsApp account | |
+
+### Return type
+
+[**\Purelines\WhapiSdk\Model\ResponseSuccess**](../Model/ResponseSuccess.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -1,4 +1,4 @@
-# # CommunitySubGroupsAnnounceGroupInfo
+# CommunitySubGroupsAnnounceGroupInfo
 
 ## Properties
 
